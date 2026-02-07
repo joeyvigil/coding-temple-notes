@@ -18,7 +18,7 @@ What you'll learn:
 -   Component composition patterns
 -   Best practices for React development
 
-Why this matters:\
+Why this matters:
 React is one of the most popular JavaScript libraries for building user interfaces. It's used by companies like Facebook, Netflix, Airbnb, and many others. Learning React will give you the skills to build modern, interactive web applications and prepare you for a career in frontend or full-stack development.
 
 Concepts Overview
@@ -88,7 +88,7 @@ Code Examples
 Here's a simple React component:
 
 ```jsx
-// Greeting.jsx\
+// Greeting.jsx
 function  Greeting({ name })  {
 return  <h1>Hello,  {name}!</h1>;
 }
@@ -111,19 +111,19 @@ JSX (JavaScript XML) is a syntax extension that allows you to write HTML-like co
 #### Basic JSX Syntax
 
 ```jsx
-function  App()  {\
-const title =  "Welcome to React";\
+function  App()  {
+const title =  "Welcome to React";
 const isLoggedIn =  true;
 
-return  (\
-<div className="app">\
-<h1>{title}</h1>\
-{isLoggedIn &&  <p>You are logged in!</p>}\
-<button onClick={()  =>  alert('Hello!')}>\
-Click me\
-</button>\
-</div>\
-);\
+return  (
+<div className="app">
+<h1>{title}</h1>
+{isLoggedIn &&  <p>You are logged in!</p>}
+<button onClick={()  =>  alert('Hello!')}>
+Click me
+</button>
+</div>
+);
 }
 
 ```
@@ -133,59 +133,59 @@ Click me\
 1.  Single Parent Element: JSX must return a single parent element
 
 ```jsx
-❌ Wrong - multiple elements\
-return  (\
-<h1>Title</h1>\
-<p>Description</p>\
+❌ Wrong - multiple elements
+return  (
+<h1>Title</h1>
+<p>Description</p>
 );
 
-// ✅ Correct - wrapped in div\
-return  (\
-<div>\
-<h1>Title</h1>\
-<p>Description</p>\
-</div>\
+// ✅ Correct - wrapped in div
+return  (
+<div>
+<h1>Title</h1>
+<p>Description</p>
+</div>
 );
 
-// ✅ Correct - using React Fragment\
-return  (\
-<>\
-<h1>Title</h1>\
-<p>Description</p>\
-</>\
+// ✅ Correct - using React Fragment
+return  (
+<>
+<h1>Title</h1>
+<p>Description</p>
+</>
 );
 
 ```
-1.  Use className instead of class:
+2.  Use className instead of class:
 ```jsx
-// ❌ Wrong\
+// ❌ Wrong
 <div class="container">
 
-// ✅ Correct\
+// ✅ Correct
 <div className="container">
 
 ```
 
 3.  Self-closing tags must have a slash:
 ```jsx
-// ❌ Wrong\
+// ❌ Wrong
 <img src="image.jpg">
 
-// ✅ Correct\
+// ✅ Correct
 <img src="image.jpg"  />
 
 ```
-5.  JavaScript expressions in curly braces:
+4.  JavaScript expressions in curly braces:
 ```jsx
-const name =  "Dylan";\
+const name =  "Dylan";
 const age =  25;
 
-return  (\
-<div>\
-<p>Name:  {name}</p>\
-<p>Age:  {age}</p>\
-<p>Next year:  {age +  1}</p>\
-</div>\
+return  (
+<div>
+<p>Name:  {name}</p>
+<p>Age:  {age}</p>
+<p>Next year:  {age +  1}</p>
+</div>
 );
 
 ```
@@ -197,33 +197,33 @@ Props (short for properties) are how you pass data from parent to child componen
 #### Basic Props Usage
 
 ```jsx
-// Card.jsx - Child component\
-function  Card({ title, description, image })  {\
-return  (\
-<div className="card">\
-<img src={image} alt={title}  />\
-<h3>{title}</h3>\
-<p>{description}</p>\
-</div>\
-);\
+// Card.jsx - Child component
+function  Card({ title, description, image })  {
+return  (
+<div className="card">
+<img src={image} alt={title}  />
+<h3>{title}</h3>
+<p>{description}</p>
+</div>
+);
 }
 
-// App.jsx - Parent component\
-function  App()  {\
-return  (\
-<div>\
-<Card\
-title="React Tutorial"\
-description="Learn React fundamentals"\
-image="https://via.placeholder.com/300x200"\
-/>\
-<Card\
-title="JavaScript Basics"\
-description="Master JavaScript concepts"\
-image="https://via.placeholder.com/300x200"\
-/>\
-</div>\
-);\
+// App.jsx - Parent component
+function  App()  {
+return  (
+<div>
+<Card
+title="React Tutorial"
+description="Learn React fundamentals"
+image="https://via.placeholder.com/300x200"
+/>
+<Card
+title="JavaScript Basics"
+description="Master JavaScript concepts"
+image="https://via.placeholder.com/300x200"
+/>
+</div>
+);
 }
 
 ```
@@ -231,18 +231,18 @@ image="https://via.placeholder.com/300x200"\
 #### Props with Default Values
 
 ```jsx
-function  Button({ text, color =  "blue", size =  "medium"  })  {\
-return  (\
-<button\
-className={```btn btn-${color} btn-${size}```}\
->\
-{text}\
-</button>\
-);\
+function  Button({ text, color =  "blue", size =  "medium"  })  {
+return  (
+<button
+className={```btn btn-${color} btn-${size}```}
+>
+{text}
+</button>
+);
 }
 
-// Usage\
-<Button text="Click me"  />\
+// Usage
+<Button text="Click me"  />
 <Button text="Submit" color="green" size="large"  />
 
 ```
@@ -250,39 +250,39 @@ className={```btn btn-${color} btn-${size}```}\
 #### Props with Objects and Arrays
 
 ```jsx
-function  UserProfile({ user, skills, isOnline })  {\
-return  (\
-<div className="profile">\
-<img src={user.avatar} alt={user.name}  />\
-<h2>{user.name}</h2>\
-<p>{user.email}</p>\
+function  UserProfile({ user, skills, isOnline })  {
+return  (
+<div className="profile">
+<img src={user.avatar} alt={user.name}  />
+<h2>{user.name}</h2>
+<p>{user.email}</p>
 {isOnline &&  <span className="online-indicator">Online</span>}
 
-<div className="skills">\
-<h3>Skills:</h3>\
-<ul>\
-{skills.map((skill, index)  =>  (\
-<li key={index}>{skill}</li>\
-))}\
-</ul>\
-</div>\
-</div>\
-);\
+<div className="skills">
+<h3>Skills:</h3>
+<ul>
+{skills.map((skill, index)  =>  (
+<li key={index}>{skill}</li>
+))}
+</ul>
+</div>
+</div>
+);
 }
 
-// Usage\
-const user =  {\
-name:  "Dylan Smith",\
-email:  "dylan@example.com",\
-avatar:  "https://via.placeholder.com/100x100"\
+// Usage
+const user =  {
+name:  "Dylan Smith",
+email:  "dylan@example.com",
+avatar:  "https://via.placeholder.com/100x100"
 };
 
 const skills =  ["JavaScript",  "React",  "Python",  "Flask"];
 
-<UserProfile\
-user={user}\
-skills={skills}\
-isOnline={true}\
+<UserProfile
+user={user}
+skills={skills}
+isOnline={true}
 />
 
 ```
@@ -294,63 +294,63 @@ Component composition is the practice of building complex UIs by combining simpl
 #### Layout Components
 
 ```jsx
-// Header.jsx\
-function  Header({ title, navigation })  {\
-return  (\
-<header className="header">\
-<h1>{title}</h1>\
-<nav>\
-{navigation.map((item, index)  =>  (\
-<a key={index} href={item.href}>\
-{item.label}\
-</a>\
-))}\
-</nav>\
-</header>\
-);\
+// Header.jsx
+function  Header({ title, navigation })  {
+return  (
+<header className="header">
+<h1>{title}</h1>
+<nav>
+{navigation.map((item, index)  =>  (
+<a key={index} href={item.href}>
+{item.label}
+</a>
+))}
+</nav>
+</header>
+);
 }
 
-// Footer.jsx\
-function  Footer({ copyright, year })  {\
-return  (\
-<footer className="footer">\
-<p>&copy;  {year}  {copyright}</p>\
-</footer>\
-);\
+// Footer.jsx
+function  Footer({ copyright, year })  {
+return  (
+<footer className="footer">
+<p>&copy;  {year}  {copyright}</p>
+</footer>
+);
 }
 
-// Layout.jsx\
-function  Layout({ children, title, navigation, copyright, year })  {\
-return  (\
-<div className="layout">\
-<Header title={title} navigation={navigation}  />\
-<main className="main-content">\
-{children}\
-</main>\
-<Footer copyright={copyright} year={year}  />\
-</div>\
-);\
+// Layout.jsx
+function  Layout({ children, title, navigation, copyright, year })  {
+return  (
+<div className="layout">
+<Header title={title} navigation={navigation}  />
+<main className="main-content">
+{children}
+</main>
+<Footer copyright={copyright} year={year}  />
+</div>
+);
 }
 
-// App.jsx\
-function  App()  {\
-const navigation =  [\
-{  href:  "#home",  label:  "Home"  },\
-{  href:  "#about",  label:  "About"  },\
-{  href:  "#contact",  label:  "Contact"  }\
+// App.jsx
+function  App()  {
+const navigation =  [
+{  href:  "#home",  label:  "Home"  },
+{  href:  "#about",  label:  "About"  },
+{  href:  "#contact",  label:  "Contact"  }
 ];
 
-return  (\
-<Layout\
-title="My Website"\
-navigation={navigation}\
-copyright="My Company"\
-year="2024"\
->\
-<h2>Welcome to my website!</h2>\
-<p>This is the main content area.</p>\
-</Layout>\
-);\
+return  (
+<Layout
+title="My Website"
+navigation={navigation}
+copyright="My Company"
+year="2024"
+>
+<h2>Welcome to my website!</h2>
+<p>This is the main content area.</p>
+</Layout>
+);
 }
 
 ```
@@ -358,65 +358,65 @@ year="2024"\
 #### Card Component with Composition
 
 ```jsx
-// Card.jsx\
-function  Card({ children, className =  ""  })  {\
-return  (\
-<div className={```card ${className}```}>\
-{children}\
-</div>\
-);\
+// Card.jsx
+function  Card({ children, className =  ""  })  {
+return  (
+<div className={```card ${className}```}>
+{children}
+</div>
+);
 }
 
-// CardHeader.jsx\
-function  CardHeader({ title, subtitle })  {\
-return  (\
-<div className="card-header">\
-<h3>{title}</h3>\
-{subtitle &&  <p className="subtitle">{subtitle}</p>}\
-</div>\
-);\
+// CardHeader.jsx
+function  CardHeader({ title, subtitle })  {
+return  (
+<div className="card-header">
+<h3>{title}</h3>
+{subtitle &&  <p className="subtitle">{subtitle}</p>}
+</div>
+);
 }
 
-// CardBody.jsx\
-function  CardBody({ children })  {\
-return  (\
-<div className="card-body">\
-{children}\
-</div>\
-);\
+// CardBody.jsx
+function  CardBody({ children })  {
+return  (
+<div className="card-body">
+{children}
+</div>
+);
 }
 
-// CardFooter.jsx\
-function  CardFooter({ children })  {\
-return  (\
-<div className="card-footer">\
-{children}\
-</div>\
-);\
+// CardFooter.jsx
+function  CardFooter({ children })  {
+return  (
+<div className="card-footer">
+{children}
+</div>
+);
 }
 
-// Usage\
-function  App()  {\
-return  (\
-<Card className="featured">\
-<CardHeader\
-title="React Tutorial"\
-subtitle="Learn the basics"\
-/>\
-<CardBody>\
-<p>This is a comprehensive tutorial on React fundamentals.</p>\
-<ul>\
-<li>Components</li>\
-<li>Props</li>\
-<li>JSX</li>\
-</ul>\
-</CardBody>\
-<CardFooter>\
-<button>Read More</button>\
-<button>Share</button>\
-</CardFooter>\
-</Card>\
-);\
+// Usage
+function  App()  {
+return  (
+<Card className="featured">
+<CardHeader
+title="React Tutorial"
+subtitle="Learn the basics"
+/>
+<CardBody>
+<p>This is a comprehensive tutorial on React fundamentals.</p>
+<ul>
+<li>Components</li>
+<li>Props</li>
+<li>JSX</li>
+</ul>
+</CardBody>
+<CardFooter>
+<button>Read More</button>
+<button>Share</button>
+</CardFooter>
+</Card>
+);
 }
 
 ```
@@ -437,18 +437,18 @@ Requirements:
 Solution:
 
 ```jsx
-function  Welcome({ name, timeOfDay })  {\
+function  Welcome({ name, timeOfDay })  {
 const greeting =  ```Good ${timeOfDay}, ${name}!```;
 
-return  (\
-<div className="welcome">\
-<h2>{greeting}</h2>\
-<p>Welcome to our application!</p>\
-</div>\
-);\
+return  (
+<div className="welcome">
+<h2>{greeting}</h2>
+<p>Welcome to our application!</p>
+</div>
+);
 }
 
-// Usage\
+// Usage
 <Welcome name="Dylan" timeOfDay="morning"  />
 
 ```
@@ -467,50 +467,50 @@ Requirements:
 Solution:
 
 ```jsx
-function  ProductCard({\
-name,\
-price,\
-originalPrice,\
-image,\
-isOnSale,\
-inStock\
-})  {\
-const discount = originalPrice ?\
+function  ProductCard({
+name,
+price,
+originalPrice,
+image,
+isOnSale,
+inStock
+})  {
+const discount = originalPrice ?
 Math.round(((originalPrice - price)  / originalPrice)  *  100)  :  0;
 
-return  (\
-<div className="product-card">\
-<img src={image} alt={name}  />\
+return  (
+<div className="product-card">
+<img src={image} alt={name}  />
 <h3>{name}</h3>
 
-<div className="price">\
-<span className="current-price">${price}</span>\
-{isOnSale && originalPrice &&  (\
-<>\
-<span className="original-price">${originalPrice}</span>\
-<span className="discount">{discount}% off</span>\
-</>\
-)}\
+<div className="price">
+<span className="current-price">${price}</span>
+{isOnSale && originalPrice &&  (
+<>
+<span className="original-price">${originalPrice}</span>
+<span className="discount">{discount}% off</span>
+</>
+)}
 </div>
 
-<button\
-disabled={!inStock}\
-className={inStock ?  "add-to-cart"  :  "out-of-stock"}\
->\
-{inStock ?  "Add to Cart"  :  "Out of Stock"}\
-</button>\
-</div>\
-);\
+<button
+disabled={!inStock}
+className={inStock ?  "add-to-cart"  :  "out-of-stock"}
+>
+{inStock ?  "Add to Cart"  :  "Out of Stock"}
+</button>
+</div>
+);
 }
 
-// Usage\
-<ProductCard\
-name="Wireless Headphones"\
-price={99.99}\
-originalPrice={149.99}\
-image="https://via.placeholder.com/200x200"\
-isOnSale={true}\
-inStock={true}\
+// Usage
+<ProductCard
+name="Wireless Headphones"
+price={99.99}
+originalPrice={149.99}
+image="https://via.placeholder.com/200x200"
+isOnSale={true}
+inStock={true}
 />
 
 ```
@@ -529,53 +529,53 @@ Requirements:
 Solution:
 
 ```jsx
-function  Navigation({ items, activeItem, onItemClick })  {\
+function  Navigation({ items, activeItem, onItemClick })  {
 const  [isMobileMenuOpen, setIsMobileMenuOpen]  =  useState(false);
 
-return  (\
-<nav className="navigation">\
-<div className="nav-brand">\
-<h2>My App</h2>\
-<button\
-className="mobile-menu-toggle"\
-onClick={()  =>  setIsMobileMenuOpen(!isMobileMenuOpen)}\
->\
-☰\
-</button>\
+return  (
+<nav className="navigation">
+<div className="nav-brand">
+<h2>My App</h2>
+<button
+className="mobile-menu-toggle"
+onClick={()  =>  setIsMobileMenuOpen(!isMobileMenuOpen)}
+>
+☰
+</button>
 </div>
 
-<ul className={```nav-items ${isMobileMenuOpen ?  'open'  :  ''}```}>\
-{items.map((item, index)  =>  (\
-<li key={index}>\
-<a\
-href={item.href}\
-className={activeItem === item.label ?  'active'  :  ''}\
-onClick={(e)  =>  {\
-e.preventDefault();\
-onItemClick(item.label);\
-}}\
->\
-{item.label}\
-</a>\
-</li>\
-))}\
-</ul>\
-</nav>\
-);\
+<ul className={```nav-items ${isMobileMenuOpen ?  'open'  :  ''}```}>
+{items.map((item, index)  =>  (
+<li key={index}>
+<a
+href={item.href}
+className={activeItem === item.label ?  'active'  :  ''}
+onClick={(e)  =>  {
+e.preventDefault();
+onItemClick(item.label);
+}}
+>
+{item.label}
+</a>
+</li>
+))}
+</ul>
+</nav>
+);
 }
 
-// Usage\
-const navItems =  [\
-{  label:  "Home",  href:  "#home"  },\
-{  label:  "About",  href:  "#about"  },\
-{  label:  "Services",  href:  "#services"  },\
-{  label:  "Contact",  href:  "#contact"  }\
+// Usage
+const navItems =  [
+{  label:  "Home",  href:  "#home"  },
+{  label:  "About",  href:  "#about"  },
+{  label:  "Services",  href:  "#services"  },
+{  label:  "Contact",  href:  "#contact"  }
 ];
 
-<Navigation\
-items={navItems}\
-activeItem="Home"\
-onItemClick={(item)  => console.log(```Clicked: ${item}```)}\
+<Navigation
+items={navItems}
+activeItem="Home"
+onItemClick={(item)  => console.log(```Clicked: ${item}```)}
 />
 
 ```
@@ -590,14 +590,14 @@ Best Practices
 -   Avoid generic names like "Component" or "Item"
 
 ```jsx
-// ✅ Good\
-function  UserProfile()  {  }\
-function  ProductCard()  {  }\
+// ✅ Good
+function  UserProfile()  {  }
+function  ProductCard()  {  }
 function  NavigationMenu()  {  }
 
-// ❌ Bad\
-function  component()  {  }\
-function  card()  {  }\
+// ❌ Bad
+function  component()  {  }
+function  card()  {  }
 function  menu()  {  }
 
 ```
@@ -610,10 +610,10 @@ function  menu()  {  }
 -   Use TypeScript or PropTypes for type checking
 
 ```jsx
-// ✅ Good\
+// ✅ Good
 function  Button({ text, variant =  "primary", size =  "medium"  })  {  }
 
-// ❌ Bad\
+// ❌ Bad
 function  Button({ t, v, s })  {  }
 
 ```
@@ -626,18 +626,18 @@ function  Button({ t, v, s })  {  }
 -   Keep components small and focused
 
 ```txt
-src/\
-├── components/\
-│ ├── ui/\
-│ │ ├── Button.jsx\
-│ │ ├── Card.jsx\
-│ │ └── Input.jsx\
-│ ├── layout/\
-│ │ ├── Header.jsx\
-│ │ ├── Footer.jsx\
-│ │ └── Layout.jsx\
-│ └── features/\
-│ ├── UserProfile.jsx\
+src/
+├── components/
+│ ├── ui/
+│ │ ├── Button.jsx
+│ │ ├── Card.jsx
+│ │ └── Input.jsx
+│ ├── layout/
+│ │ ├── Header.jsx
+│ │ ├── Footer.jsx
+│ │ └── Layout.jsx
+│ └── features/
+│ ├── UserProfile.jsx
 │ └── ProductList.jsx
 
 ```
@@ -650,28 +650,28 @@ src/\
 -   Keep JSX readable and well-formatted
 
 ```jsx
-// ✅ Good\
-function  UserList({ users, showOnlineOnly })  {\
-const filteredUsers = showOnlineOnly\
-? users.filter(user  => user.isOnline)\
+// ✅ Good
+function  UserList({ users, showOnlineOnly })  {
+const filteredUsers = showOnlineOnly
+? users.filter(user  => user.isOnline)
 : users;
 
-return  (\
-<div className="user-list">\
-{filteredUsers.map(user  =>  (\
-<UserCard key={user.id} user={user}  />\
-))}\
-</div>\
-);\
+return  (
+<div className="user-list">
+{filteredUsers.map(user  =>  (
+<UserCard key={user.id} user={user}  />
+))}
+</div>
+);
 }
 
-// ❌ Bad\
-function  UserList({ u, s })  {\
-return  (\
-<div>\
-{s ? u.filter(x  => x.o).map(x  =>  <div key={x.id}>{x.n}</div>)  : u.map(x  =>  <div key={x.id}>{x.n}</div>)}\
-</div>\
-);\
+// ❌ Bad
+function  UserList({ u, s })  {
+return  (
+<div>
+{s ? u.filter(x  => x.o).map(x  =>  <div key={x.id}>{x.n}</div>)  : u.map(x  =>  <div key={x.id}>{x.n}</div>)}
+</div>
+);
 }
 
 ```
@@ -679,72 +679,72 @@ return  (\
 Common Pitfalls
 ---------------
 
-### 1\. Forgetting to Export Components
+### 1. Forgetting to Export Components
 
 ```jsx
-// ❌ Wrong - component not exported\
-function  MyComponent()  {\
-return  <div>Hello</div>;\
+// ❌ Wrong - component not exported
+function  MyComponent()  {
+return  <div>Hello</div>;
 }
 
-// ✅ Correct - component exported\
-function  MyComponent()  {\
-return  <div>Hello</div>;\
-}\
+// ✅ Correct - component exported
+function  MyComponent()  {
+return  <div>Hello</div>;
+}
 export  default MyComponent;
 
 ```
 
-### 2\. Using class instead of className
+### 2. Using class instead of className
 
 ```jsx
-// ❌ Wrong\
+// ❌ Wrong
 <div class="container">
 
-// ✅ Correct\
+// ✅ Correct
 <div className="container">
 
 ```
 
-### 3\. Not Providing Keys for Lists
+### 3. Not Providing Keys for Lists
 
 ```jsx
-// ❌ Wrong - missing keys\
+// ❌ Wrong - missing keys
 {items.map(item  =>  <li>{item.name}</li>)}
 
-// ✅ Correct - with keys\
+// ✅ Correct - with keys
 {items.map(item  =>  <li key={item.id}>{item.name}</li>)}
 
 ```
 
-### 4\. Mutating Props
+### 4. Mutating Props
 
 ```jsx
-// ❌ Wrong - mutating props\
-function  UserCard({ user })  {\
-user.name =  "New Name";  // Don't do this!\
-return  <div>{user.name}</div>;\
+// ❌ Wrong - mutating props
+function  UserCard({ user })  {
+user.name =  "New Name";  // Don't do this!
+return  <div>{user.name}</div>;
 }
 
-// ✅ Correct - props are read-only\
-function  UserCard({ user })  {\
-return  <div>{user.name}</div>;\
+// ✅ Correct - props are read-only
+function  UserCard({ user })  {
+return  <div>{user.name}</div>;
 }
 
 ```
 
-### 5\. Not Handling Missing Props
+### 5. Not Handling Missing Props
 
 ```jsx
-// ❌ Wrong - could cause errors\
-function  UserCard({ user })  {\
-return  <div>{user.name.toUpperCase()}</div>;\
+// ❌ Wrong - could cause errors
+function  UserCard({ user })  {
+return  <div>{user.name.toUpperCase()}</div>;
 }
 
-// ✅ Correct - handle missing props\
-function  UserCard({ user })  {\
-if  (!user)  return  <div>No user data</div>;\
-return  <div>{user.name?.toUpperCase()}</div>;\
+// ✅ Correct - handle missing props
+function  UserCard({ user })  {
+if  (!user)  return  <div>No user data</div>;
+return  <div>{user.name?.toUpperCase()}</div>;
 }
 
 ```
@@ -844,24 +844,24 @@ Code Examples
 ```jsx
 import React,  { useState }  from  'react';
 
-function  Counter()  {\
-// Declare state variable and setter function\
+function  Counter()  {
+// Declare state variable and setter function
 const  [count, setCount]  =  useState(0);
 
-return  (\
-<div>\
-<p>Current count:  {count}</p>\
-<button onClick={()  =>  setCount(count +  1)}>\
-Increment\
-</button>\
-<button onClick={()  =>  setCount(count -  1)}>\
-Decrement\
-</button>\
-<button onClick={()  =>  setCount(0)}>\
-Reset\
-</button>\
-</div>\
-);\
+return  (
+<div>
+<p>Current count:  {count}</p>
+<button onClick={()  =>  setCount(count +  1)}>
+Increment
+</button>
+<button onClick={()  =>  setCount(count -  1)}>
+Decrement
+</button>
+<button onClick={()  =>  setCount(0)}>
+Reset
+</button>
+</div>
+);
 }
 
 export  default Counter;
@@ -880,61 +880,61 @@ Explanation:
 ```jsx
 import React,  { useState }  from  'react';
 
-function  UserProfile()  {\
-// Multiple state variables\
-const  [name, setName]  =  useState('');\
-const  [email, setEmail]  =  useState('');\
-const  [age, setAge]  =  useState(0);\
+function  UserProfile()  {
+// Multiple state variables
+const  [name, setName]  =  useState('');
+const  [email, setEmail]  =  useState('');
+const  [age, setAge]  =  useState(0);
 const  [isActive, setIsActive]  =  useState(false);
 
-const  handleSubmit  =  (event)  =>  {\
-event.preventDefault();\
-console.log('User Profile:',  { name, email, age, isActive });\
+const  handleSubmit  =  (event)  =>  {
+event.preventDefault();
+console.log('User Profile:',  { name, email, age, isActive });
 };
 
-return  (\
-<form onSubmit={handleSubmit}>\
-<div>\
-<label>Name:</label>\
-<input\
-type="text"\
-value={name}\
-onChange={(e)  =>  setName(e.target.value)}\
-/>\
+return  (
+<form onSubmit={handleSubmit}>
+<div>
+<label>Name:</label>
+<input
+type="text"
+value={name}
+onChange={(e)  =>  setName(e.target.value)}
+/>
 </div>
 
-<div>\
-<label>Email:</label>\
-<input\
-type="email"\
-value={email}\
-onChange={(e)  =>  setEmail(e.target.value)}\
-/>\
+<div>
+<label>Email:</label>
+<input
+type="email"
+value={email}
+onChange={(e)  =>  setEmail(e.target.value)}
+/>
 </div>
 
-<div>\
-<label>Age:</label>\
-<input\
-type="number"\
-value={age}\
-onChange={(e)  =>  setAge(parseInt(e.target.value)  ||  0)}\
-/>\
+<div>
+<label>Age:</label>
+<input
+type="number"
+value={age}
+onChange={(e)  =>  setAge(parseInt(e.target.value)  ||  0)}
+/>
 </div>
 
-<div>\
-<label>\
-<input\
-type="checkbox"\
-checked={isActive}\
-onChange={(e)  =>  setIsActive(e.target.checked)}\
-/>\
-Active User\
-</label>\
+<div>
+<label>
+<input
+type="checkbox"
+checked={isActive}
+onChange={(e)  =>  setIsActive(e.target.checked)}
+/>
+Active User
+</label>
 </div>
 
-<button type="submit">Save Profile</button>\
-</form>\
-);\
+<button type="submit">Save Profile</button>
+</form>
+);
 }
 
 export  default UserProfile;
@@ -952,89 +952,89 @@ Key Points:
 ```jsx
 import React,  { useState }  from  'react';
 
-function  TodoItem()  {\
-const  [todo, setTodo]  =  useState({\
-id:  1,\
-text:  'Learn React',\
-completed:  false,\
-priority:  'medium'\
+function  TodoItem()  {
+const  [todo, setTodo]  =  useState({
+id:  1,
+text:  'Learn React',
+completed:  false,
+priority:  'medium'
 });
 
-const  toggleComplete  =  ()  =>  {\
-setTodo(prevTodo  =>  ({\
-...prevTodo,\
-completed:  !prevTodo.completed\
-}));\
+const  toggleComplete  =  ()  =>  {
+setTodo(prevTodo  =>  ({
+...prevTodo,
+completed:  !prevTodo.completed
+}));
 };
 
-const  updatePriority  =  (newPriority)  =>  {\
-setTodo(prevTodo  =>  ({\
-...prevTodo,\
-priority: newPriority\
-}));\
+const  updatePriority  =  (newPriority)  =>  {
+setTodo(prevTodo  =>  ({
+...prevTodo,
+priority: newPriority
+}));
 };
 
-return  (\
-<div style={{\
-padding:  '10px',\
-border:  '1px solid #ccc',\
-margin:  '10px 0',\
-backgroundColor: todo.completed ?  '#f0f0f0'  :  'white'\
-}}>\
-<h3\
-style={{\
-textDecoration: todo.completed ?  'line-through'  :  'none'\
-}}\
-onClick={toggleComplete}\
->\
-{todo.text}\
+return  (
+<div style={{
+padding:  '10px',
+border:  '1px solid #ccc',
+margin:  '10px 0',
+backgroundColor: todo.completed ?  '#f0f0f0'  :  'white'
+}}>
+<h3
+style={{
+textDecoration: todo.completed ?  'line-through'  :  'none'
+}}
+onClick={toggleComplete}
+>
+{todo.text}
 </h3>
 
 <p>Priority:  {todo.priority}</p>
 
-<div>\
-<button\
-onClick={()  =>  updatePriority('high')}\
-style={{\
-backgroundColor: todo.priority ===  'high'  ?  '#ff4444'  :  '#ccc',\
-color:  'white',\
-margin:  '2px',\
-padding:  '5px 10px',\
-border:  'none',\
-borderRadius:  '3px'\
-}}\
->\
-High\
-</button>\
-<button\
-onClick={()  =>  updatePriority('medium')}\
-style={{\
-backgroundColor: todo.priority ===  'medium'  ?  '#ffaa00'  :  '#ccc',\
-color:  'white',\
-margin:  '2px',\
-padding:  '5px 10px',\
-border:  'none',\
-borderRadius:  '3px'\
-}}\
->\
-Medium\
-</button>\
-<button\
-onClick={()  =>  updatePriority('low')}\
-style={{\
-backgroundColor: todo.priority ===  'low'  ?  '#44ff44'  :  '#ccc',\
-color:  'white',\
-margin:  '2px',\
-padding:  '5px 10px',\
-border:  'none',\
-borderRadius:  '3px'\
-}}\
->\
-Low\
-</button>\
-</div>\
-</div>\
-);\
+<div>
+<button
+onClick={()  =>  updatePriority('high')}
+style={{
+backgroundColor: todo.priority ===  'high'  ?  '#ff4444'  :  '#ccc',
+color:  'white',
+margin:  '2px',
+padding:  '5px 10px',
+border:  'none',
+borderRadius:  '3px'
+}}
+>
+High
+</button>
+<button
+onClick={()  =>  updatePriority('medium')}
+style={{
+backgroundColor: todo.priority ===  'medium'  ?  '#ffaa00'  :  '#ccc',
+color:  'white',
+margin:  '2px',
+padding:  '5px 10px',
+border:  'none',
+borderRadius:  '3px'
+}}
+>
+Medium
+</button>
+<button
+onClick={()  =>  updatePriority('low')}
+style={{
+backgroundColor: todo.priority ===  'low'  ?  '#44ff44'  :  '#ccc',
+color:  'white',
+margin:  '2px',
+padding:  '5px 10px',
+border:  'none',
+borderRadius:  '3px'
+}}
+>
+Low
+</button>
+</div>
+</div>
+);
 }
 
 export  default TodoItem;
@@ -1052,145 +1052,145 @@ Important Notes:
 ```jsx
 import React,  { useState }  from  'react';
 
-function  ShoppingList()  {\
-const  [items, setItems]  =  useState([]);\
+function  ShoppingList()  {
+const  [items, setItems]  =  useState([]);
 const  [newItem, setNewItem]  =  useState('');
 
-const  addItem  =  ()  =>  {\
-if  (newItem.trim())  {\
-setItems(prevItems  =>  [\
-...prevItems,\
-{\
-id: Date.now(),\
-name: newItem,\
-purchased:  false\
-}\
-]);\
-setNewItem('');\
-}\
+const  addItem  =  ()  =>  {
+if  (newItem.trim())  {
+setItems(prevItems  =>  [
+...prevItems,
+{
+id: Date.now(),
+name: newItem,
+purchased:  false
+}
+]);
+setNewItem('');
+}
 };
 
-const  togglePurchased  =  (id)  =>  {\
-setItems(prevItems  =>\
-prevItems.map(item  =>\
-item.id === id\
-?  {  ...item,  purchased:  !item.purchased }\
-: item\
-)\
-);\
+const  togglePurchased  =  (id)  =>  {
+setItems(prevItems  =>
+prevItems.map(item  =>
+item.id === id
+?  {  ...item,  purchased:  !item.purchased }
+: item
+)
+);
 };
 
-const  removeItem  =  (id)  =>  {\
-setItems(prevItems  => prevItems.filter(item  => item.id !== id));\
+const  removeItem  =  (id)  =>  {
+setItems(prevItems  => prevItems.filter(item  => item.id !== id));
 };
 
-const  clearPurchased  =  ()  =>  {\
-setItems(prevItems  => prevItems.filter(item  =>  !item.purchased));\
+const  clearPurchased  =  ()  =>  {
+setItems(prevItems  => prevItems.filter(item  =>  !item.purchased));
 };
 
-return  (\
-<div style={{  padding:  '20px',  maxWidth:  '500px'  }}>\
+return  (
+<div style={{  padding:  '20px',  maxWidth:  '500px'  }}>
 <h2>Shopping List</h2>
 
-<div style={{  marginBottom:  '20px'  }}>\
-<input\
-type="text"\
-value={newItem}\
-onChange={(e)  =>  setNewItem(e.target.value)}\
-placeholder="Add new item..."\
-style={{\
-padding:  '8px',\
-marginRight:  '10px',\
-width:  '300px',\
-border:  '1px solid #ccc',\
-borderRadius:  '4px'\
-}}\
-/>\
-<button\
-onClick={addItem}\
-style={{\
-padding:  '8px 16px',\
-backgroundColor:  '#007bff',\
-color:  'white',\
-border:  'none',\
-borderRadius:  '4px',\
-cursor:  'pointer'\
-}}\
->\
-Add Item\
-</button>\
+<div style={{  marginBottom:  '20px'  }}>
+<input
+type="text"
+value={newItem}
+onChange={(e)  =>  setNewItem(e.target.value)}
+placeholder="Add new item..."
+style={{
+padding:  '8px',
+marginRight:  '10px',
+width:  '300px',
+border:  '1px solid #ccc',
+borderRadius:  '4px'
+}}
+/>
+<button
+onClick={addItem}
+style={{
+padding:  '8px 16px',
+backgroundColor:  '#007bff',
+color:  'white',
+border:  'none',
+borderRadius:  '4px',
+cursor:  'pointer'
+}}
+>
+Add Item
+</button>
 </div>
 
-<ul style={{  listStyle:  'none',  padding:  0  }}>\
-{items.map(item  =>  (\
-<li\
-key={item.id}\
-style={{\
-display:  'flex',\
-alignItems:  'center',\
-padding:  '8px',\
-margin:  '5px 0',\
-border:  '1px solid #ddd',\
-borderRadius:  '4px',\
-backgroundColor: item.purchased ?  '#f8f9fa'  :  'white'\
-}}\
->\
-<input\
-type="checkbox"\
-checked={item.purchased}\
-onChange={()  =>  togglePurchased(item.id)}\
-style={{  marginRight:  '10px'  }}\
-/>\
-<span\
-style={{\
-flex:  1,\
-textDecoration: item.purchased ?  'line-through'  :  'none',\
-color: item.purchased ?  '#6c757d'  :  'black'\
-}}\
->\
-{item.name}\
-</span>\
-<button\
-onClick={()  =>  removeItem(item.id)}\
-style={{\
-padding:  '4px 8px',\
-backgroundColor:  '#dc3545',\
-color:  'white',\
-border:  'none',\
-borderRadius:  '3px',\
-cursor:  'pointer'\
-}}\
->\
-Remove\
-</button>\
-</li>\
-))}\
+<ul style={{  listStyle:  'none',  padding:  0  }}>
+{items.map(item  =>  (
+<li
+key={item.id}
+style={{
+display:  'flex',
+alignItems:  'center',
+padding:  '8px',
+margin:  '5px 0',
+border:  '1px solid #ddd',
+borderRadius:  '4px',
+backgroundColor: item.purchased ?  '#f8f9fa'  :  'white'
+}}
+>
+<input
+type="checkbox"
+checked={item.purchased}
+onChange={()  =>  togglePurchased(item.id)}
+style={{  marginRight:  '10px'  }}
+/>
+<span
+style={{
+flex:  1,
+textDecoration: item.purchased ?  'line-through'  :  'none',
+color: item.purchased ?  '#6c757d'  :  'black'
+}}
+>
+{item.name}
+</span>
+<button
+onClick={()  =>  removeItem(item.id)}
+style={{
+padding:  '4px 8px',
+backgroundColor:  '#dc3545',
+color:  'white',
+border:  'none',
+borderRadius:  '3px',
+cursor:  'pointer'
+}}
+>
+Remove
+</button>
+</li>
+))}
 </ul>
 
-{items.length >  0  &&  (\
-<div style={{  marginTop:  '20px'  }}>\
-<p>\
-Total items:  {items.length}  |\
-Purchased:  {items.filter(item  => item.purchased).length}  |\
-Remaining:  {items.filter(item  =>  !item.purchased).length}\
-</p>\
-<button\
-onClick={clearPurchased}\
-style={{\
-padding:  '8px 16px',\
-backgroundColor:  '#6c757d',\
-color:  'white',\
-border:  'none',\
-borderRadius:  '4px',\
-cursor:  'pointer'\
-}}\
->\
-Clear Purchased Items\
-</button>\
-</div>\
-)}\
-</div>\
-);\
+{items.length >  0  &&  (
+<div style={{  marginTop:  '20px'  }}>
+<p>
+Total items:  {items.length}  |
+Purchased:  {items.filter(item  => item.purchased).length}  |
+Remaining:  {items.filter(item  =>  !item.purchased).length}
+</p>
+<button
+onClick={clearPurchased}
+style={{
+padding:  '8px 16px',
+backgroundColor:  '#6c757d',
+color:  'white',
+border:  'none',
+borderRadius:  '4px',
+cursor:  'pointer'
+}}
+>
+Clear Purchased Items
+</button>
+</div>
+)}
+</div>
+);
 }
 
 export  default ShoppingList;
@@ -1238,90 +1238,90 @@ Build a complete todo list with:
 Best Practices
 --------------
 
-### 1\. State Structure
+### 1. State Structure
 
 -   Keep state as simple as possible
 -   Group related state into objects when appropriate
 -   Avoid deeply nested state structures
 
 ```jsx
-// Good: Simple, flat state\
-const  [name, setName]  =  useState('');\
+// Good: Simple, flat state
+const  [name, setName]  =  useState('');
 const  [email, setEmail]  =  useState('');
 
-// Good: Related state grouped together\
-const  [user, setUser]  =  useState({\
-name:  '',\
-email:  '',\
-preferences:  {}\
+// Good: Related state grouped together
+const  [user, setUser]  =  useState({
+name:  '',
+email:  '',
+preferences:  {}
 });
 
 ```
 
-### 2\. State Updates
+### 2. State Updates
 
 -   Always use the setter function
 -   Use functional updates when the new state depends on the previous state
 -   Never mutate state directly
 
 ```jsx
-// Good: Functional update\
+// Good: Functional update
 setCount(prevCount  => prevCount +  1);
 
-// Good: Object update\
-setUser(prevUser  =>  ({\
-...prevUser,\
-name: newName\
+// Good: Object update
+setUser(prevUser  =>  ({
+...prevUser,
+name: newName
 }));
 
-// Bad: Direct mutation\
+// Bad: Direct mutation
 user.name = newName;  // Don't do this!
 
 ```
 
-### 3\. Event Handling
+### 3. Event Handling
 
 -   Use descriptive function names
 -   Extract complex logic into separate functions
 -   Handle edge cases (empty inputs, validation)
 
 ```jsx
-// Good: Descriptive names and error handling\
-const  handleNameChange  =  (event)  =>  {\
-const value = event.target.value.trim();\
-if  (value.length <=  50)  {\
-setName(value);\
-}\
+// Good: Descriptive names and error handling
+const  handleNameChange  =  (event)  =>  {
+const value = event.target.value.trim();
+if  (value.length <=  50)  {
+setName(value);
+}
 };
 
-// Good: Extracted logic\
-const  validateEmail  =  (email)  =>  {\
-return email.includes('@')  && email.includes('.');\
+// Good: Extracted logic
+const  validateEmail  =  (email)  =>  {
+return email.includes('@')  && email.includes('.');
 };
 
-const  handleEmailChange  =  (event)  =>  {\
-const value = event.target.value;\
-setEmail(value);\
-setEmailValid(validateEmail(value));\
+const  handleEmailChange  =  (event)  =>  {
+const value = event.target.value;
+setEmail(value);
+setEmailValid(validateEmail(value));
 };
 
 ```
 
-### 4\. Performance Considerations
+### 4. Performance Considerations
 
 -   Avoid creating objects/functions in render
 -   Use useCallback for expensive event handlers
 -   Consider useMemo for expensive calculations
 
 ```jsx
-// Good: Memoized event handler\
-const handleClick =  useCallback(()  =>  {\
-// Expensive operation\
+// Good: Memoized event handler
+const handleClick =  useCallback(()  =>  {
+// Expensive operation
 },  [dependency]);
 
-// Good: Memoized calculation\
-const expensiveValue =  useMemo(()  =>  {\
-return items.reduce((sum, item)  => sum + item.price,  0);\
+// Good: Memoized calculation
+const expensiveValue =  useMemo(()  =>  {
+return items.reduce((sum, item)  => sum + item.price,  0);
 },  [items]);
 
 ```
@@ -1329,64 +1329,64 @@ return items.reduce((sum, item)  => sum + item.price,  0);\
 Common Pitfalls
 ---------------
 
-### 1\. Mutating State Directly
+### 1. Mutating State Directly
 
 ```jsx
-// Bad: Direct mutation\
-const  [items, setItems]  =  useState([]);\
+// Bad: Direct mutation
+const  [items, setItems]  =  useState([]);
 items.push(newItem);  // This won't trigger re-render!
 
-// Good: Using setter function\
+// Good: Using setter function
 setItems(prevItems  =>  [...prevItems, newItem]);
 
 ```
 
-### 2\. Stale State in Closures
+### 2. Stale State in Closures
 
 ```jsx
-// Bad: Stale state\
-const  handleClick  =  ()  =>  {\
-setTimeout(()  =>  {\
-setCount(count +  1);  // Uses stale count value\
-},  1000);\
+// Bad: Stale state
+const  handleClick  =  ()  =>  {
+setTimeout(()  =>  {
+setCount(count +  1);  // Uses stale count value
+},  1000);
 };
 
-// Good: Functional update\
-const  handleClick  =  ()  =>  {\
-setTimeout(()  =>  {\
-setCount(prevCount  => prevCount +  1);\
-},  1000);\
+// Good: Functional update
+const  handleClick  =  ()  =>  {
+setTimeout(()  =>  {
+setCount(prevCount  => prevCount +  1);
+},  1000);
 };
 
 ```
 
-### 3\. Forgetting to Prevent Default
+### 3. Forgetting to Prevent Default
 
 ```jsx
-// Bad: Form will submit and refresh page\
-const  handleSubmit  =  ()  =>  {\
-// Process form\
+// Bad: Form will submit and refresh page
+const  handleSubmit  =  ()  =>  {
+// Process form
 };
 
-// Good: Prevent default behavior\
-const  handleSubmit  =  (event)  =>  {\
-event.preventDefault();\
-// Process form\
+// Good: Prevent default behavior
+const  handleSubmit  =  (event)  =>  {
+event.preventDefault();
+// Process form
 };
 
 ```
 
-### 4\. Missing Dependencies in useEffect
+### 4. Missing Dependencies in useEffect
 
 ```jsx
-// Bad: Missing dependency\
-useEffect(()  =>  {\
-fetchData(userId);\
+// Bad: Missing dependency
+useEffect(()  =>  {
+fetchData(userId);
 },  []);  // Missing userId dependency
 
-// Good: Include all dependencies\
-useEffect(()  =>  {\
-fetchData(userId);\
+// Good: Include all dependencies
+useEffect(()  =>  {
+fetchData(userId);
 },  [userId]);
 
 ```
@@ -1397,46 +1397,46 @@ Advanced Patterns
 ### Custom Hooks
 
 ```jsx
-// Custom hook for form state\
-function  useForm(initialValues)  {\
-const  [values, setValues]  =  useState(initialValues);\
+// Custom hook for form state
+function  useForm(initialValues)  {
+const  [values, setValues]  =  useState(initialValues);
 const  [errors, setErrors]  =  useState({});
 
-const  handleChange  =  (event)  =>  {\
-const  { name, value }  = event.target;\
-setValues(prev  =>  ({\
-...prev,\
-[name]: value\
-}));\
+const  handleChange  =  (event)  =>  {
+const  { name, value }  = event.target;
+setValues(prev  =>  ({
+...prev,
+[name]: value
+}));
 };
 
-const  handleSubmit  =  (onSubmit)  =>  (event)  =>  {\
-event.preventDefault();\
-onSubmit(values);\
+const  handleSubmit  =  (onSubmit)  =>  (event)  =>  {
+event.preventDefault();
+onSubmit(values);
 };
 
-return  { values, errors, handleChange, handleSubmit };\
+return  { values, errors, handleChange, handleSubmit };
 }
 
-// Usage\
-function  ContactForm()  {\
-const  { values, handleChange, handleSubmit }  =  useForm({\
-name:  '',\
-email:  '',\
-message:  ''\
+// Usage
+function  ContactForm()  {
+const  { values, handleChange, handleSubmit }  =  useForm({
+name:  '',
+email:  '',
+message:  ''
 });
 
-return  (\
-<form onSubmit={handleSubmit((data)  => console.log(data))}>\
-<input\
-name="name"\
-value={values.name}\
-onChange={handleChange}\
-placeholder="Name"\
-/>\
-{/* More inputs... */}\
-</form>\
-);\
+return  (
+<form onSubmit={handleSubmit((data)  => console.log(data))}>
+<input
+name="name"
+value={values.name}
+onChange={handleChange}
+placeholder="Name"
+/>
+{/* More inputs... */}
+</form>
+);
 }
 
 ```
@@ -1444,35 +1444,35 @@ placeholder="Name"\
 ### State Reducer Pattern
 
 ```jsx
-// For complex state logic\
-function  todoReducer(state, action)  {\
-switch  (action.type)  {\
-case  'ADD_TODO':\
-return  [...state, action.payload];\
-case  'TOGGLE_TODO':\
-return state.map(todo  =>\
-todo.id === action.payload\
-?  {  ...todo,  completed:  !todo.completed }\
-: todo\
-);\
-case  'DELETE_TODO':\
-return state.filter(todo  => todo.id !== action.payload);\
-default:\
-return state;\
-}\
+// For complex state logic
+function  todoReducer(state, action)  {
+switch  (action.type)  {
+case  'ADD_TODO':
+return  [...state, action.payload];
+case  'TOGGLE_TODO':
+return state.map(todo  =>
+todo.id === action.payload
+?  {  ...todo,  completed:  !todo.completed }
+: todo
+);
+case  'DELETE_TODO':
+return state.filter(todo  => todo.id !== action.payload);
+default:
+return state;
+}
 }
 
-function  TodoApp()  {\
+function  TodoApp()  {
 const  [todos, dispatch]  =  useReducer(todoReducer,  []);
 
-const  addTodo  =  (text)  =>  {\
-dispatch({\
-type:  'ADD_TODO',\
-payload:  {  id: Date.now(), text,  completed:  false  }\
-});\
+const  addTodo  =  (text)  =>  {
+dispatch({
+type:  'ADD_TODO',
+payload:  {  id: Date.now(), text,  completed:  false  }
+});
 };
 
-// More actions...\
+// More actions...
 }
 
 ```
@@ -1542,16 +1542,17 @@ React components should be pure functions - given the same inputs (props and s
 
 ### Example: The Problem
 
-```// WRONG - This will cause infinite re-renders\
-function  UserProfile({ userId })  {\
+```jsx
+// WRONG - This will cause infinite re-renders
+function  UserProfile({ userId })  {
 const  [user, setUser]  =  useState(null);
 
-// This runs on EVERY render!\
-fetch(```/api/users/${userId}```)\
-.then(res  => res.json())\
+// This runs on EVERY render!
+fetch(```/api/users/${userId}```)
+.then(res  => res.json())
 .then(data  =>  setUser(data));
 
-return  <div>{user?.name ||  'Loading...'}</div>;\
+return  <div>{user?.name ||  'Loading...'}</div>;
 }
 
 ```
@@ -1574,21 +1575,21 @@ React components go through different phases during their lifetime. Understandin
 
 ### The Three Main Lifecycle Phases
 
-#### 1\. Mounting Phase
+#### 1. Mounting Phase
 
 -   Component is created and added to the DOM
 -   Initial state is set with ```useState```
 -   Component renders for the first time
 -   ```useEffect``` with empty dependencies ```[]``` runs
 
-#### 2\. Updating Phase
+#### 2. Updating Phase
 
 -   State or props change
 -   Component re-renders
 -   ```useEffect``` with dependencies runs (if dependencies changed)
 -   ```useEffect``` with no dependencies runs after every render
 
-#### 3\. Unmounting Phase
+#### 3. Unmounting Phase
 
 -   Component is about to be removed from DOM
 -   Cleanup functions from ```useEffect``` run
@@ -1596,65 +1597,67 @@ React components go through different phases during their lifetime. Understandin
 
 ### Visual Representation
 
-```Component Lifecycle:\
-┌─────────────┐ ┌─────────────┐ ┌─────────────┐\
-│ Mount │───▶│ Update │───▶│ Unmount │\
-│ │ │ │ │ │\
-│ - useState │ │ - Re-render │ │ - Cleanup │\
-│ - useEffect │ │ - useEffect │ │ - Remove │\
-│ - Render │ │ - Render │ │ │\
+```
+Component Lifecycle:
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│ Mount │───▶│ Update │───▶│ Unmount │
+│ │ │ │ │ │
+│ - useState │ │ - Re-render │ │ - Cleanup │
+│ - useEffect │ │ - useEffect │ │ - Remove │
+│ - Render │ │ - Render │ │ │
 └─────────────┘ └─────────────┘ └─────────────┘
 
 ```
 
 ### Lifecycle Demo Component
 
-```import  { useState, useEffect }  from  'react';
+```jsx
+import  { useState, useEffect }  from  'react';
 
-function  LifecycleDemo()  {\
-const  [count, setCount]  =  useState(0);\
+function  LifecycleDemo()  {
+const  [count, setCount]  =  useState(0);
 const  [isVisible, setIsVisible]  =  useState(true);
 
-// This runs on every render (including initial render)\
+// This runs on every render (including initial render)
 console.log('Component is rendering...');
 
-// This runs after every render\
-useEffect(()  =>  {\
-console.log('Component rendered (useEffect with no dependencies)');\
+// This runs after every render
+useEffect(()  =>  {
+console.log('Component rendered (useEffect with no dependencies)');
 });
 
-// This runs only on mount\
-useEffect(()  =>  {\
+// This runs only on mount
+useEffect(()  =>  {
 console.log('Component mounted (useEffect with empty dependencies)');
 
-// This runs on unmount\
-return  ()  =>  {\
-console.log('Component unmounted (cleanup function)');\
-};\
+// This runs on unmount
+return  ()  =>  {
+console.log('Component unmounted (cleanup function)');
+};
 },  []);
 
-// This runs when count changes\
-useEffect(()  =>  {\
-console.log('Count changed to:', count);\
+// This runs when count changes
+useEffect(()  =>  {
+console.log('Count changed to:', count);
 },  [count]);
 
-return  (\
-<div>\
-<h2>Lifecycle Demo</h2>\
-<p>Count:  {count}</p>\
-<button onClick={()  =>  setCount(count +  1)}>Increment</button>\
-<button onClick={()  =>  setIsVisible(!isVisible)}>\
-{isVisible ?  'Hide'  :  'Show'} Component\
+return  (
+<div>
+<h2>Lifecycle Demo</h2>
+<p>Count:  {count}</p>
+<button onClick={()  =>  setCount(count +  1)}>Increment</button>
+<button onClick={()  =>  setIsVisible(!isVisible)}>
+{isVisible ?  'Hide'  :  'Show'} Component
 </button>
 
-{isVisible &&  (\
-<div>\
-<h3>This component is visible</h3>\
-<p>Check the console to see lifecycle logs!</p>\
-</div>\
-)}\
-</div>\
-);\
+{isVisible &&  (
+<div>
+<h3>This component is visible</h3>
+<p>Check the console to see lifecycle logs!</p>
+</div>
+)}
+</div>
+);
 }
 
 ```
@@ -1698,44 +1701,48 @@ return  (\
 
 #### Run Once on Mount
 
-```useEffect(()  =>  {\
-// This runs only once when component mounts\
-console.log('Component mounted');\
-fetchInitialData();\
+```jsx
+useEffect(()  =>  {
+// This runs only once when component mounts
+console.log('Component mounted');
+fetchInitialData();
 },  []);  // Empty dependency array
 
 ```
 
 #### Run on Every Update
 
-```useEffect(()  =>  {\
-// This runs after every render\
-console.log('Component updated');\
-updateDocumentTitle();\
+```jsx
+useEffect(()  =>  {
+// This runs after every render
+console.log('Component updated');
+updateDocumentTitle();
 });  // No dependency array
 
 ```
 
 #### Run When Specific Values Change
 
-```useEffect(()  =>  {\
-// This runs when userId or isActive changes\
-fetchUserData(userId, isActive);\
+```jsx
+useEffect(()  =>  {
+// This runs when userId or isActive changes
+fetchUserData(userId, isActive);
 },  [userId, isActive]);  // Specific dependencies
 
 ```
 
 #### Cleanup on Unmount
 
-```useEffect(()  =>  {\
-const timer =  setInterval(()  =>  {\
-console.log('Timer tick');\
+```jsx
+useEffect(()  =>  {
+const timer =  setInterval(()  =>  {
+console.log('Timer tick');
 },  1000);
 
-// Cleanup function runs on unmount\
-return  ()  =>  {\
-clearInterval(timer);\
-};\
+// Cleanup function runs on unmount
+return  ()  =>  {
+clearInterval(timer);
+};
 },  []);  // Empty array - only run on mount/unmount
 
 ```
@@ -1752,16 +1759,16 @@ Understanding the component lifecycle helps you:
 
 ### Common Questions
 
-Q: When does my component mount?\
+Q: When does my component mount?
 A: When it first appears in the DOM (usually when parent renders it)
 
-Q: Why does my effect run multiple times?\
+Q: Why does my effect run multiple times?
 A: Check your dependency array - effects run when dependencies change
 
-Q: When should I clean up?\
+Q: When should I clean up?
 A: Always clean up subscriptions, timers, and event listeners to prevent memory leaks
 
-Q: How do I know what to put in the dependency array?\
+Q: How do I know what to put in the dependency array?
 A: Include all values from component scope that are used inside the effect
 
 * * * * *
@@ -1771,88 +1778,93 @@ Understanding useEffect
 
 ### Basic Syntax
 
-```import  { useEffect }  from  'react';
+```jsx
+import  { useEffect }  from  'react';
 
-useEffect(()  =>  {\
-// Side effect code here\
+useEffect(()  =>  {
+// Side effect code here
 },  [dependencies]);  // Optional dependency array
 
 ```
 
 ### The Three Main Use Cases
 
-#### 1\. Run on Every Render (No Dependency Array)
+#### 1. Run on Every Render (No Dependency Array)
 
-```useEffect(()  =>  {\
-console.log('Component rendered');\
-// This runs after every render\
+```jsx
+useEffect(()  =>  {
+console.log('Component rendered');
+// This runs after every render
 });
 
 ```
 
-#### 2\. Run Only on Mount (Empty Dependency Array)
+#### 2. Run Only on Mount (Empty Dependency Array)
 
-```useEffect(()  =>  {\
-console.log('Component mounted');\
-// This runs only once when component mounts\
+```jsx
+useEffect(()  =>  {
+console.log('Component mounted');
+// This runs only once when component mounts
 },  []);  // Empty array
 
 ```
 
-#### 3\. Run When Dependencies Change
+#### 3. Run When Dependencies Change
 
-```useEffect(()  =>  {\
-console.log('Count changed:', count);\
-// This runs when 'count' changes\
+```jsx
+useEffect(()  =>  {
+console.log('Count changed:', count);
+// This runs when 'count' changes
 },  [count]);  // 'count' in dependency array
 
 ```
 
 ### Complete Example
 
-```import  { useState, useEffect }  from  'react';
+```jsx
+import  { useState, useEffect }  from  'react';
 
-function  Counter()  {\
-const  [count, setCount]  =  useState(0);\
+function  Counter()  {
+const  [count, setCount]  =  useState(0);
 const  [name, setName]  =  useState('');
 
-// Runs after every render\
-useEffect(()  =>  {\
-console.log('Component rendered');\
+// Runs after every render
+useEffect(()  =>  {
+console.log('Component rendered');
 });
 
-// Runs only on mount\
-useEffect(()  =>  {\
-console.log('Component mounted');\
-document.title =  'Counter App';\
+// Runs only on mount
+useEffect(()  =>  {
+console.log('Component mounted');
+document.title =  'Counter App';
 },  []);
 
-// Runs when count changes\
-useEffect(()  =>  {\
-console.log('Count is now:', count);\
-if  (count >  10)  {\
-alert('Count is getting high!');\
-}\
+// Runs when count changes
+useEffect(()  =>  {
+console.log('Count is now:', count);
+if  (count >  10)  {
+alert('Count is getting high!');
+}
 },  [count]);
 
-// Runs when name changes\
-useEffect(()  =>  {\
-console.log('Name changed to:', name);\
+// Runs when name changes
+useEffect(()  =>  {
+console.log('Name changed to:', name);
 },  [name]);
 
-return  (\
-<div>\
-<h2>Count:  {count}</h2>\
-<input\
-value={name}\
-onChange={(e)  =>  setName(e.target.value)}\
-placeholder="Enter your name"\
-/>\
-<button onClick={()  =>  setCount(count +  1)}>\
-Increment\
-</button>\
-</div>\
-);\
+return  (
+<div>
+<h2>Count:  {count}</h2>
+<input
+value={name}
+onChange={(e)  =>  setName(e.target.value)}
+placeholder="Enter your name"
+/>
+<button onClick={()  =>  setCount(count +  1)}>
+Increment
+</button>
+</div>
+);
 }
 
 ```
@@ -1865,10 +1877,11 @@ The dependency array tells React when to run the effect:
 -   Empty array ```[]```: Run only on mount and unmount
 -   Array with values ```[a, b]```: Run when any of the values change
 
-```// Example with multiple dependencies\
-useEffect(()  =>  {\
-// This runs when either userId OR isActive changes\
-fetchUserData(userId, isActive);\
+```jsx
+// Example with multiple dependencies
+useEffect(()  =>  {
+// This runs when either userId OR isActive changes
+fetchUserData(userId, isActive);
 },  [userId, isActive]);
 
 ```
@@ -1880,176 +1893,179 @@ Data Fetching Patterns
 
 ### Basic Data Fetching
 
-```import  { useState, useEffect }  from  'react';
+```jsx
+import  { useState, useEffect }  from  'react';
 
-function  UserList()  {\
-const  [users, setUsers]  =  useState([]);\
-const  [loading, setLoading]  =  useState(true);\
+function  UserList()  {
+const  [users, setUsers]  =  useState([]);
+const  [loading, setLoading]  =  useState(true);
 const  [error, setError]  =  useState(null);
 
-useEffect(()  =>  {\
-async  function  fetchUsers()  {\
-try  {\
-setLoading(true);\
+useEffect(()  =>  {
+async  function  fetchUsers()  {
+try  {
+setLoading(true);
 setError(null);
 
 const response =  await  fetch('https://jsonplaceholder.typicode.com/users');
 
-if  (!response.ok)  {\
-throw  new  Error(```HTTP ${response.status}: ${response.statusText}```);\
+if  (!response.ok)  {
+throw  new  Error(```HTTP ${response.status}: ${response.statusText}```);
 }
 
-const data =  await response.json();\
-setUsers(data);\
-}  catch  (err)  {\
-setError(err.message);\
-}  finally  {\
-setLoading(false);\
-}\
+const data =  await response.json();
+setUsers(data);
+}  catch  (err)  {
+setError(err.message);
+}  finally  {
+setLoading(false);
+}
 }
 
-fetchUsers();\
+fetchUsers();
 },  []);  // Empty array - fetch once on mount
 
-if  (loading)  return  <div>Loading users...</div>;\
+if  (loading)  return  <div>Loading users...</div>;
 if  (error)  return  <div>Error:  {error}</div>;
 
-return  (\
-<ul>\
-{users.map(user  =>  (\
-<li key={user.id}>\
-<strong>{user.name}</strong>  -  {user.email}\
-</li>\
-))}\
-</ul>\
-);\
+return  (
+<ul>
+{users.map(user  =>  (
+<li key={user.id}>
+<strong>{user.name}</strong>  -  {user.email}
+</li>
+))}
+</ul>
+);
 }
 
 ```
 
 ### Data Fetching with Parameters
 
-```function  UserProfile({ userId })  {\
-const  [user, setUser]  =  useState(null);\
-const  [loading, setLoading]  =  useState(false);\
+```jsx
+function  UserProfile({ userId })  {
+const  [user, setUser]  =  useState(null);
+const  [loading, setLoading]  =  useState(false);
 const  [error, setError]  =  useState(null);
 
-useEffect(()  =>  {\
-async  function  fetchUser()  {\
+useEffect(()  =>  {
+async  function  fetchUser()  {
 if  (!userId)  return;  // Don't fetch if no userId
 
-try  {\
-setLoading(true);\
+try  {
+setLoading(true);
 setError(null);
 
 const response =  await  fetch(```/api/users/${userId}```);
 
-if  (!response.ok)  {\
-throw  new  Error('User not found');\
+if  (!response.ok)  {
+throw  new  Error('User not found');
 }
 
-const userData =  await response.json();\
-setUser(userData);\
-}  catch  (err)  {\
-setError(err.message);\
-}  finally  {\
-setLoading(false);\
-}\
+const userData =  await response.json();
+setUser(userData);
+}  catch  (err)  {
+setError(err.message);
+}  finally  {
+setLoading(false);
+}
 }
 
-fetchUser();\
+fetchUser();
 },  [userId]);  // Re-fetch when userId changes
 
-if  (loading)  return  <div>Loading user...</div>;\
-if  (error)  return  <div>Error:  {error}</div>;\
+if  (loading)  return  <div>Loading user...</div>;
+if  (error)  return  <div>Error:  {error}</div>;
 if  (!user)  return  <div>No user selected</div>;
 
-return  (\
-<div>\
-<h2>{user.name}</h2>\
-<p>Email:  {user.email}</p>\
-<p>Phone:  {user.phone}</p>\
-</div>\
-);\
+return  (
+<div>
+<h2>{user.name}</h2>
+<p>Email:  {user.email}</p>
+<p>Phone:  {user.phone}</p>
+</div>
+);
 }
 
 ```
 
 ### Search with Debouncing
 
-```import  { useState, useEffect, useCallback }  from  'react';
+```jsx
+import  { useState, useEffect, useCallback }  from  'react';
 
-function  SearchableUserList()  {\
-const  [searchTerm, setSearchTerm]  =  useState('');\
-const  [users, setUsers]  =  useState([]);\
-const  [loading, setLoading]  =  useState(false);\
+function  SearchableUserList()  {
+const  [searchTerm, setSearchTerm]  =  useState('');
+const  [users, setUsers]  =  useState([]);
+const  [loading, setLoading]  =  useState(false);
 const  [error, setError]  =  useState(null);
 
-// Debounced search function\
-const debouncedSearch =  useCallback(\
-debounce(async  (term)  =>  {\
-if  (!term.trim())  {\
-setUsers([]);\
-return;\
+// Debounced search function
+const debouncedSearch =  useCallback(
+debounce(async  (term)  =>  {
+if  (!term.trim())  {
+setUsers([]);
+return;
 }
 
-try  {\
-setLoading(true);\
+try  {
+setLoading(true);
 setError(null);
 
-const response =  await  fetch(```/api/users/search?q=${encodeURIComponent(term)}```);
+const response =  await  fetch('/api/users/search?q=${encodeURIComponent(term)}'');
 
-if  (!response.ok)  {\
-throw  new  Error('Search failed');\
+if  (!response.ok)  {
+throw  new  Error('Search failed');
 }
 
-const data =  await response.json();\
-setUsers(data);\
-}  catch  (err)  {\
-setError(err.message);\
-}  finally  {\
-setLoading(false);\
-}\
-},  300),  // 300ms delay\
-[]\
+const data =  await response.json();
+setUsers(data);
+}  catch  (err)  {
+setError(err.message);
+}  finally  {
+setLoading(false);
+}
+},  300),  // 300ms delay
+[]
 );
 
-useEffect(()  =>  {\
-debouncedSearch(searchTerm);\
+useEffect(()  =>  {
+debouncedSearch(searchTerm);
 },  [searchTerm, debouncedSearch]);
 
-return  (\
-<div>\
-<input\
-type="text"\
-value={searchTerm}\
-onChange={(e)  =>  setSearchTerm(e.target.value)}\
-placeholder="Search users..."\
+return  (
+<div>
+<input
+type="text"
+value={searchTerm}
+onChange={(e)  =>  setSearchTerm(e.target.value)}
+placeholder="Search users..."
 />
 
-{loading &&  <div>Searching...</div>}\
+{loading &&  <div>Searching...</div>}
 {error &&  <div>Error:  {error}</div>}
 
-<ul>\
-{users.map(user  =>  (\
-<li key={user.id}>{user.name}</li>\
-))}\
-</ul>\
-</div>\
-);\
+<ul>
+{users.map(user  =>  (
+<li key={user.id}>{user.name}</li>
+))}
+</ul>
+</div>
+);
 }
 
-// Simple debounce function\
-function  debounce(func, wait)  {\
-let timeout;\
-return  function  executedFunction(...args)  {\
-const  later  =  ()  =>  {\
-clearTimeout(timeout);\
-func(...args);\
-};\
-clearTimeout(timeout);\
-timeout =  setTimeout(later, wait);\
-};\
+// Simple debounce function
+function  debounce(func, wait)  {
+let timeout;
+return  function  executedFunction(...args)  {
+const  later  =  ()  =>  {
+clearTimeout(timeout);
+func(...args);
+};
+clearTimeout(timeout);
+timeout =  setTimeout(later, wait);
+};
 }
 
 ```
@@ -2061,148 +2077,150 @@ Error Handling & Loading States
 
 ### Comprehensive Error Handling
 
-```function  DataComponent()  {\
-const  [data, setData]  =  useState(null);\
-const  [loading, setLoading]  =  useState(false);\
-const  [error, setError]  =  useState(null);\
+```jsx
+function  DataComponent()  {
+const  [data, setData]  =  useState(null);
+const  [loading, setLoading]  =  useState(false);
+const  [error, setError]  =  useState(null);
 const  [retryCount, setRetryCount]  =  useState(0);
 
-const  fetchData  =  async  (retry =  false)  =>  {\
-if  (!retry)  {\
-setLoading(true);\
-setError(null);\
+const  fetchData  =  async  (retry =  false)  =>  {
+if  (!retry)  {
+setLoading(true);
+setError(null);
 }
 
-try  {\
+try  {
 const response =  await  fetch('/api/data');
 
-if  (!response.ok)  {\
-// Handle different HTTP status codes\
-switch  (response.status)  {\
-case  404:\
-throw  new  Error('Data not found');\
-case  500:\
-throw  new  Error('Server error. Please try again later.');\
-case  403:\
-throw  new  Error('Access denied');\
-default:\
-throw  new  Error(```HTTP ${response.status}: ${response.statusText}```);\
-}\
+if  (!response.ok)  {
+// Handle different HTTP status codes
+switch  (response.status)  {
+case  404:
+throw  new  Error('Data not found');
+case  500:
+throw  new  Error('Server error. Please try again later.');
+case  403:
+throw  new  Error('Access denied');
+default:
+throw  new  Error(```HTTP ${response.status}: ${response.statusText}```);
+}
 }
 
-const result =  await response.json();\
-setData(result);\
-setError(null);\
-setRetryCount(0);\
-}  catch  (err)  {\
-setError(err.message);\
-console.error('Fetch error:', err);\
-}  finally  {\
-setLoading(false);\
-}\
+const result =  await response.json();
+setData(result);
+setError(null);
+setRetryCount(0);
+}  catch  (err)  {
+setError(err.message);
+console.error('Fetch error:', err);
+}  finally  {
+setLoading(false);
+}
 };
 
-useEffect(()  =>  {\
-fetchData();\
+useEffect(()  =>  {
+fetchData();
 },  []);
 
-const  handleRetry  =  ()  =>  {\
-setRetryCount(prev  => prev +  1);\
-fetchData(true);\
+const  handleRetry  =  ()  =>  {
+setRetryCount(prev  => prev +  1);
+fetchData(true);
 };
 
-if  (loading)  {\
-return  (\
-<div className="loading-container">\
-<div className="spinner"></div>\
-<p>Loading data...</p>\
-</div>\
-);\
+if  (loading)  {
+return  (
+<div className="loading-container">
+<div className="spinner"></div>
+<p>Loading data...</p>
+</div>
+);
 }
 
-if  (error)  {\
-return  (\
-<div className="error-container">\
-<h3>Something went wrong</h3>\
-<p>{error}</p>\
-<button onClick={handleRetry}>\
-Retry {retryCount >  0  &&  ```(${retryCount})```}\
-</button>\
-{retryCount >  3  &&  (\
-<p>Having trouble? Please contact support.</p>\
-)}\
-</div>\
-);\
+if  (error)  {
+return  (
+<div className="error-container">
+<h3>Something went wrong</h3>
+<p>{error}</p>
+<button onClick={handleRetry}>
+Retry {retryCount >  0  &&  ```(${retryCount})```}
+</button>
+{retryCount >  3  &&  (
+<p>Having trouble? Please contact support.</p>
+)}
+</div>
+);
 }
 
-return  (\
-<div>\
-<h2>Data Loaded Successfully</h2>\
-<pre>{JSON.stringify(data,  null,  2)}</pre>\
-</div>\
-);\
+return  (
+<div>
+<h2>Data Loaded Successfully</h2>
+<pre>{JSON.stringify(data,  null,  2)}</pre>
+</div>
+);
 }
 
 ```
 
 ### Loading States with Different Types
 
-```function  LoadingExample()  {\
-const  [loading, setLoading]  =  useState(false);\
+```jsx
+function  LoadingExample()  {
+const  [loading, setLoading]  =  useState(false);
 const  [loadingType, setLoadingType]  =  useState('');
 
-const  handleAction  =  async  (type)  =>  {\
-setLoadingType(type);\
+const  handleAction  =  async  (type)  =>  {
+setLoadingType(type);
 setLoading(true);
 
-try  {\
-// Simulate different loading times\
-const delay = type ===  'quick'  ?  1000  : type ===  'slow'  ?  3000  :  2000;\
+try  {
+// Simulate different loading times
+const delay = type ===  'quick'  ?  1000  : type ===  'slow'  ?  3000  :  2000;
 await  new  Promise(resolve  =>  setTimeout(resolve, delay));
 
-// Your actual API call here\
-console.log(```${type} action completed```);\
-}  finally  {\
-setLoading(false);\
-setLoadingType('');\
-}\
+// Your actual API call here
+console.log(```${type} action completed```);
+}  finally  {
+setLoading(false);
+setLoadingType('');
+}
 };
 
-return  (\
-<div>\
-<button\
-onClick={()  =>  handleAction('quick')}\
-disabled={loading}\
->\
-Quick Action\
+return  (
+<div>
+<button
+onClick={()  =>  handleAction('quick')}
+disabled={loading}
+>
+Quick Action
 </button>
 
-<button\
-onClick={()  =>  handleAction('normal')}\
-disabled={loading}\
->\
-Normal Action\
+<button
+onClick={()  =>  handleAction('normal')}
+disabled={loading}
+>
+Normal Action
 </button>
 
-<button\
-onClick={()  =>  handleAction('slow')}\
-disabled={loading}\
->\
-Slow Action\
+<button
+onClick={()  =>  handleAction('slow')}
+disabled={loading}
+>
+Slow Action
 </button>
 
-{loading &&  (\
-<div className="loading">\
-<div className="spinner"></div>\
-<p>\
-{loadingType ===  'quick'  &&  'Quick action in progress...'}\
-{loadingType ===  'normal'  &&  'Processing...'}\
-{loadingType ===  'slow'  &&  'This might take a while...'}\
-</p>\
-</div>\
-)}\
-</div>\
-);\
+{loading &&  (
+<div className="loading">
+<div className="spinner"></div>
+<p>
+{loadingType ===  'quick'  &&  'Quick action in progress...'}
+{loadingType ===  'normal'  &&  'Processing...'}
+{loadingType ===  'slow'  &&  'This might take a while...'}
+</p>
+</div>
+)}
+</div>
+);
 }
 
 ```
@@ -2222,180 +2240,183 @@ Cleanup functions prevent:
 
 ### Timer Cleanup
 
-```function  Timer()  {\
-const  [seconds, setSeconds]  =  useState(0);\
+```jsx
+function  Timer()  {
+const  [seconds, setSeconds]  =  useState(0);
 const  [isRunning, setIsRunning]  =  useState(false);
 
-useEffect(()  =>  {\
+useEffect(()  =>  {
 let interval;
 
-if  (isRunning)  {\
-interval =  setInterval(()  =>  {\
-setSeconds(prev  => prev +  1);\
-},  1000);\
+if  (isRunning)  {
+interval =  setInterval(()  =>  {
+setSeconds(prev  => prev +  1);
+},  1000);
 }
 
-// Cleanup function\
-return  ()  =>  {\
-if  (interval)  {\
-clearInterval(interval);\
-}\
-};\
+// Cleanup function
+return  ()  =>  {
+if  (interval)  {
+clearInterval(interval);
+}
+};
 },  [isRunning]);  // Re-run when isRunning changes
 
-return  (\
-<div>\
-<h2>Timer:  {seconds} seconds</h2>\
-<button onClick={()  =>  setIsRunning(!isRunning)}>\
-{isRunning ?  'Stop'  :  'Start'}\
-</button>\
-<button onClick={()  =>  setSeconds(0)}>Reset</button>\
-</div>\
-);\
+return  (
+<div>
+<h2>Timer:  {seconds} seconds</h2>
+<button onClick={()  =>  setIsRunning(!isRunning)}>
+{isRunning ?  'Stop'  :  'Start'}
+</button>
+<button onClick={()  =>  setSeconds(0)}>Reset</button>
+</div>
+);
 }
 
 ```
 
 ### Subscription Cleanup
 
-```function  ChatRoom({ roomId })  {\
-const  [messages, setMessages]  =  useState([]);\
+```jsx
+function  ChatRoom({ roomId })  {
+const  [messages, setMessages]  =  useState([]);
 const  [connection, setConnection]  =  useState(null);
 
-useEffect(()  =>  {\
-// Create WebSocket connection\
+useEffect(()  =>  {
+// Create WebSocket connection
 const ws =  new  WebSocket(```ws://localhost:8080/rooms/${roomId}```);
 
-ws.onopen  =  ()  =>  {\
-console.log('Connected to chat room');\
-setConnection(ws);\
+ws.onopen  =  ()  =>  {
+console.log('Connected to chat room');
+setConnection(ws);
 };
 
-ws.onmessage  =  (event)  =>  {\
-const message =  JSON.parse(event.data);\
-setMessages(prev  =>  [...prev, message]);\
+ws.onmessage  =  (event)  =>  {
+const message =  JSON.parse(event.data);
+setMessages(prev  =>  [...prev, message]);
 };
 
-ws.onerror  =  (error)  =>  {\
-console.error('WebSocket error:', error);\
+ws.onerror  =  (error)  =>  {
+console.error('WebSocket error:', error);
 };
 
-ws.onclose  =  ()  =>  {\
-console.log('Disconnected from chat room');\
-setConnection(null);\
+ws.onclose  =  ()  =>  {
+console.log('Disconnected from chat room');
+setConnection(null);
 };
 
-// Cleanup function\
-return  ()  =>  {\
-if  (ws.readyState === WebSocket.OPEN)  {\
-ws.close();\
-}\
-};\
+// Cleanup function
+return  ()  =>  {
+if  (ws.readyState === WebSocket.OPEN)  {
+ws.close();
+}
+};
 },  [roomId]);  // Re-run when roomId changes
 
-const  sendMessage  =  (text)  =>  {\
-if  (connection && connection.readyState === WebSocket.OPEN)  {\
-connection.send(JSON.stringify({ text,  timestamp: Date.now()  }));\
-}\
+const  sendMessage  =  (text)  =>  {
+if  (connection && connection.readyState === WebSocket.OPEN)  {
+connection.send(JSON.stringify({ text,  timestamp: Date.now()  }));
+}
 };
 
-return  (\
-<div>\
-<h2>Chat Room:  {roomId}</h2>\
-<div className="messages">\
-{messages.map((msg, index)  =>  (\
-<div key={index} className="message">\
-<span className="timestamp">\
-{new  Date(msg.timestamp).toLocaleTimeString()}\
-</span>\
-<span className="text">{msg.text}</span>\
-</div>\
-))}\
-</div>\
-<input\
-type="text"\
-placeholder="Type a message..."\
-onKeyPress={(e)  =>  {\
-if  (e.key ===  'Enter')  {\
-sendMessage(e.target.value);\
-e.target.value =  '';\
-}\
-}}\
-/>\
-</div>\
-);\
+return  (
+<div>
+<h2>Chat Room:  {roomId}</h2>
+<div className="messages">
+{messages.map((msg, index)  =>  (
+<div key={index} className="message">
+<span className="timestamp">
+{new  Date(msg.timestamp).toLocaleTimeString()}
+</span>
+<span className="text">{msg.text}</span>
+</div>
+))}
+</div>
+<input
+type="text"
+placeholder="Type a message..."
+onKeyPress={(e)  =>  {
+if  (e.key ===  'Enter')  {
+sendMessage(e.target.value);
+e.target.value =  '';
+}
+}}
+/>
+</div>
+);
 }
 
 ```
 
 ### API Request Cleanup with AbortController
 
-```function  SearchableList()  {\
-const  [searchTerm, setSearchTerm]  =  useState('');\
-const  [results, setResults]  =  useState([]);\
+```jsx
+function  SearchableList()  {
+const  [searchTerm, setSearchTerm]  =  useState('');
+const  [results, setResults]  =  useState([]);
 const  [loading, setLoading]  =  useState(false);
 
-useEffect(()  =>  {\
-// Create AbortController for this request\
+useEffect(()  =>  {
+// Create AbortController for this request
 const abortController =  new  AbortController();
 
-const  fetchResults  =  async  ()  =>  {\
-if  (!searchTerm.trim())  {\
-setResults([]);\
-return;\
+const  fetchResults  =  async  ()  =>  {
+if  (!searchTerm.trim())  {
+setResults([]);
+return;
 }
 
-try  {\
+try  {
 setLoading(true);
 
-const response =  await  fetch(\
-```/api/search?q=${encodeURIComponent(searchTerm)}```,\
-{  signal: abortController.signal }  // Pass abort signal\
+const response =  await  fetch(
+```/api/search?q=${encodeURIComponent(searchTerm)}```,
+{  signal: abortController.signal }  // Pass abort signal
 );
 
-if  (!response.ok)  {\
-throw  new  Error('Search failed');\
+if  (!response.ok)  {
+throw  new  Error('Search failed');
 }
 
-const data =  await response.json();\
-setResults(data);\
-}  catch  (error)  {\
-// Don't update state if request was aborted\
-if  (error.name !==  'AbortError')  {\
-console.error('Search error:', error);\
-setResults([]);\
-}\
-}  finally  {\
-setLoading(false);\
-}\
+const data =  await response.json();
+setResults(data);
+}  catch  (error)  {
+// Don't update state if request was aborted
+if  (error.name !==  'AbortError')  {
+console.error('Search error:', error);
+setResults([]);
+}
+}  finally  {
+setLoading(false);
+}
 };
 
 fetchResults();
 
-// Cleanup function - abort the request\
-return  ()  =>  {\
-abortController.abort();\
-};\
+// Cleanup function - abort the request
+return  ()  =>  {
+abortController.abort();
+};
 },  [searchTerm]);
 
-return  (\
-<div>\
-<input\
-type="text"\
-value={searchTerm}\
-onChange={(e)  =>  setSearchTerm(e.target.value)}\
-placeholder="Search..."\
+return  (
+<div>
+<input
+type="text"
+value={searchTerm}
+onChange={(e)  =>  setSearchTerm(e.target.value)}
+placeholder="Search..."
 />
 
 {loading &&  <div>Searching...</div>}
 
-<ul>\
-{results.map((item, index)  =>  (\
-<li key={index}>{item.name}</li>\
-))}\
-</ul>\
-</div>\
-);\
+<ul>
+{results.map((item, index)  =>  (
+<li key={index}>{item.name}</li>
+))}
+</ul>
+</div>
+);
 }
 
 ```
@@ -2407,153 +2428,156 @@ Advanced Patterns
 
 ### Custom Hook for Data Fetching
 
-```// Custom hook: useApi\
-function  useApi(url, options =  {})  {\
-const  [data, setData]  =  useState(null);\
-const  [loading, setLoading]  =  useState(false);\
+```jsx
+// Custom hook: useApi
+function  useApi(url, options =  {})  {
+const  [data, setData]  =  useState(null);
+const  [loading, setLoading]  =  useState(false);
 const  [error, setError]  =  useState(null);
 
-const fetchData =  useCallback(async  ()  =>  {\
-try  {\
-setLoading(true);\
+const fetchData =  useCallback(async  ()  =>  {
+try  {
+setLoading(true);
 setError(null);
 
 const response =  await  fetch(url, options);
 
-if  (!response.ok)  {\
-throw  new  Error(```HTTP ${response.status}: ${response.statusText}```);\
+if  (!response.ok)  {
+throw  new  Error(```HTTP ${response.status}: ${response.statusText}```);
 }
 
-const result =  await response.json();\
-setData(result);\
-}  catch  (err)  {\
-setError(err.message);\
-}  finally  {\
-setLoading(false);\
-}\
+const result =  await response.json();
+setData(result);
+}  catch  (err)  {
+setError(err.message);
+}  finally  {
+setLoading(false);
+}
 },  [url,  JSON.stringify(options)]);
 
-useEffect(()  =>  {\
-fetchData();\
+useEffect(()  =>  {
+fetchData();
 },  [fetchData]);
 
-return  { data, loading, error,  refetch: fetchData };\
+return  { data, loading, error,  refetch: fetchData };
 }
 
-// Using the custom hook\
-function  UserProfile({ userId })  {\
+// Using the custom hook
+function  UserProfile({ userId })  {
 const  {  data: user, loading, error, refetch }  =  useApi(```/api/users/${userId}```);
 
-if  (loading)  return  <div>Loading user...</div>;\
-if  (error)  return  <div>Error:  {error}</div>;\
+if  (loading)  return  <div>Loading user...</div>;
+if  (error)  return  <div>Error:  {error}</div>;
 if  (!user)  return  <div>No user found</div>;
 
-return  (\
-<div>\
-<h2>{user.name}</h2>\
-<p>Email:  {user.email}</p>\
-<button onClick={refetch}>Refresh</button>\
-</div>\
-);\
+return  (
+<div>
+<h2>{user.name}</h2>
+<p>Email:  {user.email}</p>
+<button onClick={refetch}>Refresh</button>
+</div>
+);
 }
 
 ```
 
 ### Multiple API Calls
 
-```function  Dashboard()  {\
-const  [user, setUser]  =  useState(null);\
-const  [posts, setPosts]  =  useState([]);\
-const  [loading, setLoading]  =  useState(true);\
+```jsx
+function  Dashboard()  {
+const  [user, setUser]  =  useState(null);
+const  [posts, setPosts]  =  useState([]);
+const  [loading, setLoading]  =  useState(true);
 const  [error, setError]  =  useState(null);
 
-useEffect(()  =>  {\
-async  function  fetchDashboardData()  {\
-try  {\
-setLoading(true);\
+useEffect(()  =>  {
+async  function  fetchDashboardData()  {
+try  {
+setLoading(true);
 setError(null);
 
-// Fetch multiple resources in parallel\
-const  [userResponse, postsResponse]  =  await Promise.all([\
-fetch('/api/user'),\
-fetch('/api/posts')\
+// Fetch multiple resources in parallel
+const  [userResponse, postsResponse]  =  await Promise.all([
+fetch('/api/user'),
+fetch('/api/posts')
 ]);
 
-if  (!userResponse.ok ||  !postsResponse.ok)  {\
-throw  new  Error('Failed to fetch dashboard data');\
+if  (!userResponse.ok ||  !postsResponse.ok)  {
+throw  new  Error('Failed to fetch dashboard data');
 }
 
-const  [userData, postsData]  =  await Promise.all([\
-userResponse.json(),\
-postsResponse.json()\
+const  [userData, postsData]  =  await Promise.all([
+userResponse.json(),
+postsResponse.json()
 ]);
 
-setUser(userData);\
-setPosts(postsData);\
-}  catch  (err)  {\
-setError(err.message);\
-}  finally  {\
-setLoading(false);\
-}\
+setUser(userData);
+setPosts(postsData);
+}  catch  (err)  {
+setError(err.message);
+}  finally  {
+setLoading(false);
+}
 }
 
-fetchDashboardData();\
+fetchDashboardData();
 },  []);
 
-if  (loading)  return  <div>Loading dashboard...</div>;\
+if  (loading)  return  <div>Loading dashboard...</div>;
 if  (error)  return  <div>Error:  {error}</div>;
 
-return  (\
-<div>\
-<h1>Welcome,  {user?.name}!</h1>\
-<h2>Your Posts</h2>\
-<ul>\
-{posts.map(post  =>  (\
-<li key={post.id}>{post.title}</li>\
-))}\
-</ul>\
-</div>\
-);\
+return  (
+<div>
+<h1>Welcome,  {user?.name}!</h1>
+<h2>Your Posts</h2>
+<ul>
+{posts.map(post  =>  (
+<li key={post.id}>{post.title}</li>
+))}
+</ul>
+</div>
+);
 }
 
 ```
 
 ### Conditional Effects
 
-```function  ConditionalDataFetch({ userId, shouldFetch })  {\
-const  [user, setUser]  =  useState(null);\
+```jsx
+function  ConditionalDataFetch({ userId, shouldFetch })  {
+const  [user, setUser]  =  useState(null);
 const  [loading, setLoading]  =  useState(false);
 
-useEffect(()  =>  {\
-// Only fetch if conditions are met\
-if  (!shouldFetch ||  !userId)  {\
-return;  // Early return - no effect\
+useEffect(()  =>  {
+// Only fetch if conditions are met
+if  (!shouldFetch ||  !userId)  {
+return;  // Early return - no effect
 }
 
-async  function  fetchUser()  {\
-try  {\
-setLoading(true);\
-const response =  await  fetch(```/api/users/${userId}```);\
-const userData =  await response.json();\
-setUser(userData);\
-}  catch  (error)  {\
-console.error('Error fetching user:', error);\
-}  finally  {\
-setLoading(false);\
-}\
+async  function  fetchUser()  {
+try  {
+setLoading(true);
+const response =  await  fetch(```/api/users/${userId}```);
+const userData =  await response.json();
+setUser(userData);
+}  catch  (error)  {
+console.error('Error fetching user:', error);
+}  finally  {
+setLoading(false);
+}
 }
 
-fetchUser();\
+fetchUser();
 },  [userId, shouldFetch]);  // Dependencies include the condition
 
-if  (!shouldFetch)  {\
-return  <div>Fetching is disabled</div>;\
+if  (!shouldFetch)  {
+return  <div>Fetching is disabled</div>;
 }
 
-if  (loading)  return  <div>Loading user...</div>;\
+if  (loading)  return  <div>Loading user...</div>;
 if  (!user)  return  <div>No user data</div>;
 
-return  <div>User:  {user.name}</div>;\
+return  <div>User:  {user.name}</div>;
 }
 
 ```
@@ -2563,101 +2587,106 @@ return  <div>User:  {user.name}</div>;\
 Best Practices
 --------------
 
-### 1\. Always Handle Loading and Error States
+### 1. Always Handle Loading and Error States
 
-```// GOOD\
-function  DataComponent()  {\
-const  [data, setData]  =  useState(null);\
-const  [loading, setLoading]  =  useState(false);\
+```jsx
+// GOOD
+function  DataComponent()  {
+const  [data, setData]  =  useState(null);
+const  [loading, setLoading]  =  useState(false);
 const  [error, setError]  =  useState(null);
 
-useEffect(()  =>  {\
-async  function  fetchData()  {\
-try  {\
-setLoading(true);\
-setError(null);\
-const response =  await  fetch('/api/data');\
-const result =  await response.json();\
-setData(result);\
-}  catch  (err)  {\
-setError(err.message);\
-}  finally  {\
-setLoading(false);\
-}\
-}\
-fetchData();\
+useEffect(()  =>  {
+async  function  fetchData()  {
+try  {
+setLoading(true);
+setError(null);
+const response =  await  fetch('/api/data');
+const result =  await response.json();
+setData(result);
+}  catch  (err)  {
+setError(err.message);
+}  finally  {
+setLoading(false);
+}
+}
+fetchData();
 },  []);
 
-if  (loading)  return  <div>Loading...</div>;\
-if  (error)  return  <div>Error:  {error}</div>;\
-return  <div>{JSON.stringify(data)}</div>;\
+if  (loading)  return  <div>Loading...</div>;
+if  (error)  return  <div>Error:  {error}</div>;
+return  <div>{JSON.stringify(data)}</div>;
 }
 
 ```
 
-### 2\. Use Proper Dependency Arrays
+### 2. Use Proper Dependency Arrays
 
-```// GOOD - includes all dependencies\
-useEffect(()  =>  {\
-fetchUserData(userId, isActive);\
+```jsx
+// GOOD - includes all dependencies
+useEffect(()  =>  {
+fetchUserData(userId, isActive);
 },  [userId, isActive]);
 
-// BAD - missing dependencies\
-useEffect(()  =>  {\
-fetchUserData(userId, isActive);\
+// BAD - missing dependencies
+useEffect(()  =>  {
+fetchUserData(userId, isActive);
 },  [userId]);  // Missing isActive
 
 ```
 
-### 3\. Clean Up Side Effects
+### 3. Clean Up Side Effects
 
-```// GOOD - cleans up timer\
-useEffect(()  =>  {\
-const timer =  setInterval(()  =>  {\
-console.log('Timer tick');\
+```jsx
+// GOOD - cleans up timer
+useEffect(()  =>  {
+const timer =  setInterval(()  =>  {
+console.log('Timer tick');
 },  1000);
 
-return  ()  =>  clearInterval(timer);\
+return  ()  =>  clearInterval(timer);
 },  []);
 
-// BAD - no cleanup\
-useEffect(()  =>  {\
-setInterval(()  =>  {\
-console.log('Timer tick');\
-},  1000);\
+// BAD - no cleanup
+useEffect(()  =>  {
+setInterval(()  =>  {
+console.log('Timer tick');
+},  1000);
 },  []);
 
 ```
 
-### 4\. Avoid Infinite Loops
+### 4. Avoid Infinite Loops
 
-```// GOOD - stable dependency\
+```jsx
+// GOOD - stable dependency
 const  [count, setCount]  =  useState(0);
 
-useEffect(()  =>  {\
-if  (count <  10)  {\
-setCount(prev  => prev +  1);\
-}\
+useEffect(()  =>  {
+if  (count <  10)  {
+setCount(prev  => prev +  1);
+}
 },  [count]);
 
-// BAD - infinite loop\
-useEffect(()  =>  {\
-setCount(count +  1);\
+// BAD - infinite loop
+useEffect(()  =>  {
+setCount(count +  1);
 },  [count]);  // count changes, triggers effect, changes count again
 
 ```
 
-### 5\. Use AbortController for API Requests
+### 5. Use AbortController for API Requests
 
-```// GOOD - cancels previous requests\
-useEffect(()  =>  {\
+```jsx
+// GOOD - cancels previous requests
+useEffect(()  =>  {
 const abortController =  new  AbortController();
 
-fetch('/api/data',  {  signal: abortController.signal })\
-.then(res  => res.json())\
+fetch('/api/data',  {  signal: abortController.signal })
+.then(res  => res.json())
 .then(setData);
 
-return  ()  => abortController.abort();\
+return  ()  => abortController.abort();
 },  []);
 
 ```
@@ -2667,102 +2696,107 @@ return  ()  => abortController.abort();\
 Common Pitfalls
 ---------------
 
-### 1\. Missing Dependency Array
+### 1. Missing Dependency Array
 
-```// WRONG - runs on every render\
-useEffect(()  =>  {\
-fetchData();\
+```jsx
+// WRONG - runs on every render
+useEffect(()  =>  {
+fetchData();
 });
 
-// CORRECT - runs only on mount\
-useEffect(()  =>  {\
-fetchData();\
+// CORRECT - runs only on mount
+useEffect(()  =>  {
+fetchData();
 },  []);
 
 ```
 
-### 2\. Stale Closures
+### 2. Stale Closures
 
-```// WRONG - uses stale count value\
-useEffect(()  =>  {\
-const timer =  setInterval(()  =>  {\
-console.log(count);  // Always logs initial value\
+```jsx
+// WRONG - uses stale count value
+useEffect(()  =>  {
+const timer =  setInterval(()  =>  {
+console.log(count);  // Always logs initial value
 },  1000);
 
-return  ()  =>  clearInterval(timer);\
+return  ()  =>  clearInterval(timer);
 },  []);
 
-// CORRECT - uses current count value\
-useEffect(()  =>  {\
-const timer =  setInterval(()  =>  {\
-setCount(prev  =>  {\
-console.log(prev);  // Logs current value\
-return prev +  1;\
-});\
+// CORRECT - uses current count value
+useEffect(()  =>  {
+const timer =  setInterval(()  =>  {
+setCount(prev  =>  {
+console.log(prev);  // Logs current value
+return prev +  1;
+});
 },  1000);
 
-return  ()  =>  clearInterval(timer);\
+return  ()  =>  clearInterval(timer);
 },  []);
 
 ```
 
-### 3\. Forgetting to Clean Up
+### 3. Forgetting to Clean Up
 
-```// WRONG - memory leak\
-useEffect(()  =>  {\
-const subscription =  subscribeToUpdates();\
-// No cleanup!\
+```jsx
+// WRONG - memory leak
+useEffect(()  =>  {
+const subscription =  subscribeToUpdates();
+// No cleanup!
 },  []);
 
-// CORRECT - proper cleanup\
-useEffect(()  =>  {\
+// CORRECT - proper cleanup
+useEffect(()  =>  {
 const subscription =  subscribeToUpdates();
 
-return  ()  =>  {\
-subscription.unsubscribe();\
-};\
+return  ()  =>  {
+subscription.unsubscribe();
+};
 },  []);
 
 ```
 
-### 4\. Incorrect Dependency Arrays
+### 4. Incorrect Dependency Arrays
 
-```// WRONG - missing dependencies\
-function  Component({ userId, filters })  {\
-useEffect(()  =>  {\
-fetchUserData(userId, filters);\
+```jsx
+// WRONG - missing dependencies
+function  Component({ userId, filters })  {
+useEffect(()  =>  {
+fetchUserData(userId, filters);
 },  [userId]);  // Missing filters dependency
 
-return  <div>...</div>;\
+return  <div>...</div>;
 }
 
-// CORRECT - includes all dependencies\
-function  Component({ userId, filters })  {\
-useEffect(()  =>  {\
-fetchUserData(userId, filters);\
+// CORRECT - includes all dependencies
+function  Component({ userId, filters })  {
+useEffect(()  =>  {
+fetchUserData(userId, filters);
 },  [userId, filters]);
 
-return  <div>...</div>;\
+return  <div>...</div>;
 }
 
 ```
 
-### 5\. Async Functions in useEffect
+### 5. Async Functions in useEffect
 
-```// WRONG - async function directly in useEffect\
-useEffect(async  ()  =>  {\
-const data =  await  fetchData();\
-setData(data);\
+```jsx
+// WRONG - async function directly in useEffect
+useEffect(async  ()  =>  {
+const data =  await  fetchData();
+setData(data);
 },  []);
 
-// CORRECT - define async function inside useEffect\
-useEffect(()  =>  {\
-async  function  fetchData()  {\
-const data =  await  fetchData();\
-setData(data);\
+// CORRECT - define async function inside useEffect
+useEffect(()  =>  {
+async  function  fetchData()  {
+const data =  await  fetchData();
+setData(data);
 }
 
-fetchData();\
+fetchData();
 },  []);
 
 ```
@@ -2810,17 +2844,19 @@ Core Concepts
 
 Controlled Components: Form data controlled by React state
 
-```function  ControlledInput()  {\
-const  [value, setValue]  =  useState('');\
-return  <input value={value} onChange={(e)  =>  setValue(e.target.value)}  />;\
+```jsx
+function  ControlledInput()  {
+const  [value, setValue]  =  useState('');
+return  <input value={value} onChange={(e)  =>  setValue(e.target.value)}  />;
 }
 
 ```
 
 Uncontrolled Components: Form data handled by DOM
 
-```function  UncontrolledInput()  {\
-return  <input defaultValue="initial value"  />;\
+```jsx
+function  UncontrolledInput()  {
+return  <input defaultValue="initial value"  />;
 }
 
 ```
@@ -2831,22 +2867,24 @@ When to use: Controlled for most cases, uncontrolled for simple forms or non-Rea
 
 #### Single Field
 
-```const  [email, setEmail]  =  useState('');\
+```jsx
+const  [email, setEmail]  =  useState('');
 <input value={email} onChange={(e)  =>  setEmail(e.target.value)}  />
 
 ```
 
 #### Multiple Fields (Object State)
 
-```const  [formData, setFormData]  =  useState({\
-firstName:  '',\
-lastName:  '',\
-email:  ''\
+```jsx
+const  [formData, setFormData]  =  useState({
+firstName:  '',
+lastName:  '',
+email:  ''
 });
 
-const  handleChange  =  (event)  =>  {\
-const  { name, value }  = event.target;\
-setFormData(prevData  =>  ({  ...prevData,  [name]: value }));\
+const  handleChange  =  (event)  =>  {
+const  { name, value }  = event.target;
+setFormData(prevData  =>  ({  ...prevData,  [name]: value }));
 };
 
 ```
@@ -2855,27 +2893,29 @@ setFormData(prevData  =>  ({  ...prevData,  [name]: value }));\
 
 #### Real-time Validation
 
-```const  handleChange  =  (event)  =>  {\
-const  { name, value }  = event.target;\
+```jsx
+const  handleChange  =  (event)  =>  {
+const  { name, value }  = event.target;
 setFormData(prev  =>  ({  ...prev,  [name]: value }));
 
-// Validate field\
-const error =  validateField(name, value);\
-setErrors(prev  =>  ({  ...prev,  [name]: error }));\
+// Validate field
+const error =  validateField(name, value);
+setErrors(prev  =>  ({  ...prev,  [name]: error }));
 };
 
 ```
 
 #### Submit-time Validation
 
-```const  validateForm  =  ()  =>  {\
-const newErrors =  {};\
-Object.keys(formData).forEach(key  =>  {\
-const error =  validateField(key, formData[key]);\
-if  (error) newErrors[key]  = error;\
-});\
-setErrors(newErrors);\
-return Object.keys(newErrors).length ===  0;\
+```jsx
+const  validateForm  =  ()  =>  {
+const newErrors =  {};
+Object.keys(formData).forEach(key  =>  {
+const error =  validateField(key, formData[key]);
+if  (error) newErrors[key]  = error;
+});
+setErrors(newErrors);
+return Object.keys(newErrors).length ===  0;
 };
 
 ```
@@ -2885,169 +2925,172 @@ Code Examples
 
 ### Basic Contact Form
 
-```function  ContactForm()  {\
-const  [formData, setFormData]  =  useState({\
-name:  '',\
-email:  '',\
-message:  ''\
+```jsx
+function  ContactForm()  {
+const  [formData, setFormData]  =  useState({
+name:  '',
+email:  '',
+message:  ''
 });
 
-const  handleChange  =  (event)  =>  {\
-const  { name, value }  = event.target;\
-setFormData(prevData  =>  ({  ...prevData,  [name]: value }));\
+const  handleChange  =  (event)  =>  {
+const  { name, value }  = event.target;
+setFormData(prevData  =>  ({  ...prevData,  [name]: value }));
 };
 
-const  handleSubmit  =  (event)  =>  {\
-event.preventDefault();\
-console.log('Form submitted:', formData);\
+const  handleSubmit  =  (event)  =>  {
+event.preventDefault();
+console.log('Form submitted:', formData);
 };
 
-return  (\
-<form onSubmit={handleSubmit}>\
-<input\
-type="text"\
-name="name"\
-value={formData.name}\
-onChange={handleChange}\
-placeholder="Name"\
-required\
-/>\
-<input\
-type="email"\
-name="email"\
-value={formData.email}\
-onChange={handleChange}\
-placeholder="Email"\
-required\
-/>\
-<textarea\
-name="message"\
-value={formData.message}\
-onChange={handleChange}\
-placeholder="Message"\
-required\
-/>\
-<button type="submit">Send Message</button>\
-</form>\
-);\
+return  (
+<form onSubmit={handleSubmit}>
+<input
+type="text"
+name="name"
+value={formData.name}
+onChange={handleChange}
+placeholder="Name"
+required
+/>
+<input
+type="email"
+name="email"
+value={formData.email}
+onChange={handleChange}
+placeholder="Email"
+required
+/>
+<textarea
+name="message"
+value={formData.message}
+onChange={handleChange}
+placeholder="Message"
+required
+/>
+<button type="submit">Send Message</button>
+</form>
+);
 }
 
 ```
 
 ### Form with Validation
 
-```function  ValidatedForm()  {\
-const  [formData, setFormData]  =  useState({  email:  '',  password:  ''  });\
+```jsx
+function  ValidatedForm()  {
+const  [formData, setFormData]  =  useState({  email:  '',  password:  ''  });
 const  [errors, setErrors]  =  useState({});
 
-const  validateField  =  (name, value)  =>  {\
-switch  (name)  {\
-case  'email':\
-return  /\S+@\S+\.\S+/.test(value)  ?  ''  :  'Invalid email';\
-case  'password':\
-return value.length >=  8  ?  ''  :  'Password must be 8+ characters';\
-default:\
-return  '';\
-}\
+const  validateField  =  (name, value)  =>  {
+switch  (name)  {
+case  'email':
+return  /S+@S+.S+/.test(value)  ?  ''  :  'Invalid email';
+case  'password':
+return value.length >=  8  ?  ''  :  'Password must be 8+ characters';
+default:
+return  '';
+}
 };
 
-const  handleChange  =  (event)  =>  {\
-const  { name, value }  = event.target;\
+const  handleChange  =  (event)  =>  {
+const  { name, value }  = event.target;
 setFormData(prev  =>  ({  ...prev,  [name]: value }));
 
-const error =  validateField(name, value);\
-setErrors(prev  =>  ({  ...prev,  [name]: error }));\
+const error =  validateField(name, value);
+setErrors(prev  =>  ({  ...prev,  [name]: error }));
 };
 
-return  (\
-<form>\
-<input\
-type="email"\
-name="email"\
-value={formData.email}\
-onChange={handleChange}\
-className={errors.email ?  'error'  :  ''}\
-/>\
+return  (
+<form>
+<input
+type="email"
+name="email"
+value={formData.email}
+onChange={handleChange}
+className={errors.email ?  'error'  :  ''}
+/>
 {errors.email &&  <span>{errors.email}</span>}
 
-<input\
-type="password"\
-name="password"\
-value={formData.password}\
-onChange={handleChange}\
-className={errors.password ?  'error'  :  ''}\
-/>\
-{errors.password &&  <span>{errors.password}</span>}\
-</form>\
-);\
+<input
+type="password"
+name="password"
+value={formData.password}
+onChange={handleChange}
+className={errors.password ?  'error'  :  ''}
+/>
+{errors.password &&  <span>{errors.password}</span>}
+</form>
+);
 }
 
 ```
 
 ### Dynamic Form Fields
 
-```function  DynamicForm()  {\
-const  [formData, setFormData]  =  useState({\
-name:  '',\
-skills:  [{  skill:  '',  level:  'beginner'  }]\
+```jsx
+function  DynamicForm()  {
+const  [formData, setFormData]  =  useState({
+name:  '',
+skills:  [{  skill:  '',  level:  'beginner'  }]
 });
 
-const  addSkill  =  ()  =>  {\
-setFormData(prev  =>  ({\
-...prev,\
-skills:  [...prev.skills,  {  skill:  '',  level:  'beginner'  }]\
-}));\
+const  addSkill  =  ()  =>  {
+setFormData(prev  =>  ({
+...prev,
+skills:  [...prev.skills,  {  skill:  '',  level:  'beginner'  }]
+}));
 };
 
-const  removeSkill  =  (index)  =>  {\
-setFormData(prev  =>  ({\
-...prev,\
-skills: prev.skills.filter((_, i)  => i !== index)\
-}));\
+const  removeSkill  =  (index)  =>  {
+setFormData(prev  =>  ({
+...prev,
+skills: prev.skills.filter((_, i)  => i !== index)
+}));
 };
 
-const  updateSkill  =  (index, field, value)  =>  {\
-setFormData(prev  =>  ({\
-...prev,\
-skills: prev.skills.map((skill, i)  =>\
-i === index ?  {  ...skill,  [field]: value }  : skill\
-)\
-}));\
+const  updateSkill  =  (index, field, value)  =>  {
+setFormData(prev  =>  ({
+...prev,
+skills: prev.skills.map((skill, i)  =>
+i === index ?  {  ...skill,  [field]: value }  : skill
+)
+}));
 };
 
-return  (\
-<form>\
-<input\
-type="text"\
-name="name"\
-value={formData.name}\
-onChange={(e)  =>  setFormData(prev  =>  ({  ...prev,  name: e.target.value }))}\
+return  (
+<form>
+<input
+type="text"
+name="name"
+value={formData.name}
+onChange={(e)  =>  setFormData(prev  =>  ({  ...prev,  name: e.target.value }))}
 />
 
-{formData.skills.map((skill, index)  =>  (\
-<div key={index}>\
-<input\
-type="text"\
-value={skill.skill}\
-onChange={(e)  =>  updateSkill(index,  'skill', e.target.value)}\
-/>\
-<select\
-value={skill.level}\
-onChange={(e)  =>  updateSkill(index,  'level', e.target.value)}\
->\
-<option value="beginner">Beginner</option>\
-<option value="intermediate">Intermediate</option>\
-<option value="advanced">Advanced</option>\
-</select>\
-<button type="button" onClick={()  =>  removeSkill(index)}>\
-Remove\
-</button>\
-</div>\
+{formData.skills.map((skill, index)  =>  (
+<div key={index}>
+<input
+type="text"
+value={skill.skill}
+onChange={(e)  =>  updateSkill(index,  'skill', e.target.value)}
+/>
+<select
+value={skill.level}
+onChange={(e)  =>  updateSkill(index,  'level', e.target.value)}
+>
+<option value="beginner">Beginner</option>
+<option value="intermediate">Intermediate</option>
+<option value="advanced">Advanced</option>
+</select>
+<button type="button" onClick={()  =>  removeSkill(index)}>
+Remove
+</button>
+</div>
 ))}
 
-<button type="button" onClick={addSkill}>Add Skill</button>\
-</form>\
-);\
+<button type="button" onClick={addSkill}>Add Skill</button>
+</form>
+);
 }
 
 ```
@@ -3055,61 +3098,65 @@ Remove\
 Best Practices
 --------------
 
-### 1\. Use Controlled Components
+### 1. Use Controlled Components
 
-```// Good\
+```jsx
+// Good
 <input value={value} onChange={handleChange}  />
 
-// Avoid\
+// Avoid
 <input defaultValue={value}  />
 
 ```
 
-### 2\. Proper Form Structure
+### 2. Proper Form Structure
 
-```<form onSubmit={handleSubmit}>\
-<div className="form-group">\
-<label htmlFor="email">Email:</label>\
-<input\
-type="email"\
-id="email"\
-name="email"\
-value={formData.email}\
-onChange={handleChange}\
-required\
-/>\
-{errors.email &&  <span className="error-message">{errors.email}</span>}\
-</div>\
+```html
+<form onSubmit={handleSubmit}>
+<div className="form-group">
+<label htmlFor="email">Email:</label>
+<input
+type="email"
+id="email"
+name="email"
+value={formData.email}
+onChange={handleChange}
+required
+/>
+{errors.email &&  <span className="error-message">{errors.email}</span>}
+</div>
 </form>
 
 ```
 
-### 3\. Efficient State Updates
+### 3. Efficient State Updates
 
-```// Good - prevents stale closures\
+```jsx
+// Good - prevents stale closures
 setFormData(prevData  =>  ({  ...prevData,  [name]: value }));
 
-// Avoid - can cause stale closures\
+// Avoid - can cause stale closures
 setFormData({  ...formData,  [name]: value });
 
 ```
 
-### 4\. Error Handling
+### 4. Error Handling
 
-```const  handleSubmit  =  async  (event)  =>  {\
+```jsx
+const  handleSubmit  =  async  (event)  =>  {
 event.preventDefault();
 
 if  (!validateForm())  return;
 
-setIsSubmitting(true);\
-try  {\
-await  submitForm(formData);\
-setIsSubmitted(true);\
-}  catch  (error)  {\
-setSubmissionError(error.message);\
-}  finally  {\
-setIsSubmitting(false);\
-}\
+setIsSubmitting(true);
+try  {
+await  submitForm(formData);
+setIsSubmitted(true);
+}  catch  (error)  {
+setSubmissionError(error.message);
+}  finally  {
+setIsSubmitting(false);
+}
 };
 
 ```
@@ -3117,33 +3164,36 @@ setIsSubmitting(false);\
 Common Pitfalls
 ---------------
 
-### 1\. Forgetting preventDefault()
+### 1. Forgetting preventDefault()
 
-```const  handleSubmit  =  (event)  =>  {\
-event.preventDefault();  // Always include this!\
-// Handle form submission\
+```jsx
+const  handleSubmit  =  (event)  =>  {
+event.preventDefault();  // Always include this!
+// Handle form submission
 };
 
 ```
 
-### 2\. Stale Closure Issues
+### 2. Stale Closure Issues
 
-```// Problematic\
-const  handleChange  =  (event)  =>  {\
-setFormData({  ...formData,  [event.target.name]: event.target.value });\
+```jsx
+// Problematic
+const  handleChange  =  (event)  =>  {
+setFormData({  ...formData,  [event.target.name]: event.target.value });
 };
 
-// Better\
-const  handleChange  =  (event)  =>  {\
-setFormData(prevData  =>  ({  ...prevData,  [event.target.name]: event.target.value }));\
+// Better
+const  handleChange  =  (event)  =>  {
+setFormData(prevData  =>  ({  ...prevData,  [event.target.name]: event.target.value }));
 };
 
 ```
 
-### 3\. Missing Loading States
+### 3. Missing Loading States
 
-```<button type="submit" disabled={isSubmitting}>\
-{isSubmitting ?  'Submitting...'  :  'Submit'}\
+```jsx
+<button type="submit" disabled={isSubmitting}>
+{isSubmitting ?  'Submitting...'  :  'Submit'}
 </button>
 
 ```
@@ -3206,14 +3256,15 @@ Core Concepts
 
 A Single Page Application loads once and then dynamically updates the content as users navigate. The URL changes, but the page doesn't refresh.
 
-```// Traditional multi-page app\
-// Page 1: /about.html\
-// Page 2: /contact.html\
+```
+// Traditional multi-page app
+// Page 1: /about.html
+// Page 2: /contact.html
 // Each click = new server request + full page reload
 
-// SPA with React Router\
-// All navigation happens in JavaScript\
-// URL changes but no page refresh\
+// SPA with React Router
+// All navigation happens in JavaScript
+// URL changes but no page refresh
 // State is preserved between navigations
 
 ```
@@ -3222,11 +3273,12 @@ A Single Page Application loads once and then dynamically updates the content as
 
 Client-side routing intercepts navigation attempts and renders the appropriate component based on the URL, all without making server requests.
 
-```// When user clicks a link or types a URL:\
-// 1. React Router intercepts the navigation\
-// 2. Determines which component to render\
-// 3. Updates the URL in the browser\
-// 4. Renders the new component\
+```
+// When user clicks a link or types a URL:
+// 1. React Router intercepts the navigation
+// 2. Determines which component to render
+// 3. Updates the URL in the browser
+// 4. Renders the new component
 // 5. No server request needed!
 
 ```
@@ -3236,40 +3288,43 @@ Getting Started
 
 ### Installation
 
-```npm install react-router-dom
-
+```bash
+npm install react-router-dom
 ```
 
 ### Basic Setup
 
-```// main.jsx\
-import React from  'react'\
-import ReactDOM from  'react-dom/client'\
-import  { BrowserRouter }  from  'react-router-dom'\
+```jsx
+// main.jsx
+import React from  'react'
+import ReactDOM from  'react-dom/client'
+import  { BrowserRouter }  from  'react-router-dom'
 import App from  './App.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(\
-<React.StrictMode>\
-<BrowserRouter>\
-<App />\
-</BrowserRouter>\
-</React.StrictMode>,\
+ReactDOM.createRoot(document.getElementById('root')).render(
+<React.StrictMode>
+<BrowserRouter>
+<App />
+</BrowserRouter>
+</React.StrictMode>,
 )
+```
 
-``````// App.jsx\
-import  { Routes, Route }  from  'react-router-dom'\
-import Home from  './pages/Home'\
-import About from  './pages/About'\
+```jsx
+// App.jsx
+import  { Routes, Route }  from  'react-router-dom'
+import Home from  './pages/Home'
+import About from  './pages/About'
 import Contact from  './pages/Contact'
 
-function  App()  {\
-return  (\
-<Routes>\
-<Route path="/" element={<Home />}  />\
-<Route path="/about" element={<About />}  />\
-<Route path="/contact" element={<Contact />}  />\
-</Routes>\
-)\
+function  App()  {
+return  (
+<Routes>
+<Route path="/" element={<Home />}  />
+<Route path="/about" element={<About />}  />
+<Route path="/contact" element={<Contact />}  />
+</Routes>
+)
 }
 
 export  default App
@@ -3283,16 +3338,17 @@ Navigation Components
 
 The ```Link``` component creates navigation links that don't cause a full page reload.
 
-```import  { Link }  from  'react-router-dom'
+```jsx
+import  { Link }  from  'react-router-dom'
 
-function  Navigation()  {\
-return  (\
-<nav>\
-<Link to="/">Home</Link>\
-<Link to="/about">About</Link>\
-<Link to="/contact">Contact</Link>\
-</nav>\
-)\
+function  Navigation()  {
+return  (
+<nav>
+<Link to="/">Home</Link>
+<Link to="/about">About</Link>
+<Link to="/contact">Contact</Link>
+</nav>
+)
 }
 
 ```
@@ -3301,29 +3357,30 @@ return  (\
 
 ```NavLink``` is like ```Link``` but provides additional props for styling active links.
 
-```import  { NavLink }  from  'react-router-dom'
+```jsx
+import  { NavLink }  from  'react-router-dom'
 
-function  Navigation()  {\
-return  (\
-<nav>\
-<NavLink\
-to="/"\
-className={({ isActive })  =>\
-isActive ?  'active-link'  :  'normal-link'\
-}\
->\
-Home\
-</NavLink>\
-<NavLink\
-to="/about"\
-style={({ isActive })  =>  ({\
-fontWeight: isActive ?  'bold'  :  'normal'\
-})}\
->\
-About\
-</NavLink>\
-</nav>\
-)\
+function  Navigation()  {
+return  (
+<nav>
+<NavLink
+to="/"
+className={({ isActive })  =>
+isActive ?  'active-link'  :  'normal-link'
+}
+>
+Home
+</NavLink>
+<NavLink
+to="/about"
+style={({ isActive })  =>  ({
+fontWeight: isActive ?  'bold'  :  'normal'
+})}
+>
+About
+</NavLink>
+</nav>
+)
 }
 
 ```
@@ -3332,23 +3389,24 @@ About\
 
 For programmatic navigation (like after form submission or button clicks).
 
-```import  { useNavigate }  from  'react-router-dom'
+```jsx
+import  { useNavigate }  from  'react-router-dom'
 
-function  LoginForm()  {\
+function  LoginForm()  {
 const navigate =  useNavigate()
 
-const  handleSubmit  =  (event)  =>  {\
-event.preventDefault()\
-// Handle login logic\
-navigate('/dashboard')  // Navigate programmatically\
+const  handleSubmit  =  (event)  =>  {
+event.preventDefault()
+// Handle login logic
+navigate('/dashboard')  // Navigate programmatically
 }
 
-return  (\
-<form onSubmit={handleSubmit}>\
-{/* form fields */}\
-<button type="submit">Login</button>\
-</form>\
-)\
+return  (
+<form onSubmit={handleSubmit}>
+{/* form fields */}
+<button type="submit">Login</button>
+</form>
+)
 }
 
 ```
@@ -3360,24 +3418,25 @@ Dynamic Routing
 
 Use ```:``` to define dynamic segments in your routes.
 
-```// App.jsx\
-<Routes>\
-<Route path="/users/:id" element={<UserProfile />}  />\
-<Route path="/posts/:slug" element={<PostDetail />}  />\
+```jsx
+// App.jsx
+<Routes>
+<Route path="/users/:id" element={<UserProfile />}  />
+<Route path="/posts/:slug" element={<PostDetail />}  />
 </Routes>
 
-``````// UserProfile.jsx\
+``````// UserProfile.jsx
 import  { useParams }  from  'react-router-dom'
 
-function  UserProfile()  {\
+function  UserProfile()  {
 const  { id }  =  useParams()
 
-return  (\
-<div>\
-<h1>User Profile</h1>\
-<p>User ID:  {id}</p>\
-</div>\
-)\
+return  (
+<div>
+<h1>User Profile</h1>
+<p>User ID:  {id}</p>
+</div>
+)
 }
 
 ```
@@ -3386,26 +3445,27 @@ return  (\
 
 Access query string parameters using ```useSearchParams```.
 
-```import  { useSearchParams }  from  'react-router-dom'
+```jsx
+import  { useSearchParams }  from  'react-router-dom'
 
-function  ProductList()  {\
-const  [searchParams, setSearchParams]  =  useSearchParams()\
-const category = searchParams.get('category')\
+function  ProductList()  {
+const  [searchParams, setSearchParams]  =  useSearchParams()
+const category = searchParams.get('category')
 const sort = searchParams.get('sort')
 
-const  handleFilterChange  =  (newCategory)  =>  {\
-setSearchParams({  category: newCategory,  sort: sort ||  'name'  })\
+const  handleFilterChange  =  (newCategory)  =>  {
+setSearchParams({  category: newCategory,  sort: sort ||  'name'  })
 }
 
-return  (\
-<div>\
-<h1>Products</h1>\
-{category &&  <p>Filtered by:  {category}</p>}\
-<button onClick={()  =>  handleFilterChange('electronics')}>\
-Electronics\
-</button>\
-</div>\
-)\
+return  (
+<div>
+<h1>Products</h1>
+{category &&  <p>Filtered by:  {category}</p>}
+<button onClick={()  =>  handleFilterChange('electronics')}>
+Electronics
+</button>
+</div>
+)
 }
 
 ```
@@ -3415,40 +3475,44 @@ Nested Routes
 
 Nested routes allow you to create complex layouts with shared components.
 
-```// App.jsx\
-import  { Routes, Route }  from  'react-router-dom'\
+```jsx
+// App.jsx
+import  { Routes, Route }  from  'react-router-dom'
 import Layout from  './components/Layout'
 
-function  App()  {\
-return  (\
-<Routes>\
-<Route path="/" element={<Layout />}>\
-<Route index element={<Home />}  />\
-<Route path="about" element={<About />}  />\
-<Route path="contact" element={<Contact />}  />\
-<Route path="blog" element={<Blog />}>\
-<Route index element={<BlogList />}  />\
-<Route path=":slug" element={<BlogPost />}  />\
-</Route>\
-</Route>\
-</Routes>\
-)\
+function  App()  {
+return  (
+<Routes>
+<Route path="/" element={<Layout />}>
+<Route index element={<Home />}  />
+<Route path="about" element={<About />}  />
+<Route path="contact" element={<Contact />}  />
+<Route path="blog" element={<Blog />}>
+<Route index element={<BlogList />}  />
+<Route path=":slug" element={<BlogPost />}  />
+</Route>
+</Route>
+</Routes>
+)
 }
 
-``````// Layout.jsx\
-import  { Outlet }  from  'react-router-dom'\
+```
+
+```jsx
+// Layout.jsx
+import  { Outlet }  from  'react-router-dom'
 import Navigation from  './Navigation'
 
-function  Layout()  {\
-return  (\
-<div>\
-<Navigation />\
-<main>\
-<Outlet />  {/* Child routes render here */}\
-</main>\
-<footer>Footer content</footer>\
-</div>\
-)\
+function  Layout()  {
+return  (
+<div>
+<Navigation />
+<main>
+<Outlet />  {/* Child routes render here */}
+</main>
+<footer>Footer content</footer>
+</div>
+)
 }
 
 ```
@@ -3460,42 +3524,44 @@ Route Protection
 
 Create components that require authentication or specific permissions.
 
-```// ProtectedRoute.jsx\
+```jsx
+// ProtectedRoute.jsx
 import  { Navigate }  from  'react-router-dom'
 
-function  ProtectedRoute({ children, isAuthenticated })  {\
-return isAuthenticated ? children :  <Navigate to="/login"  />\
+function  ProtectedRoute({ children, isAuthenticated })  {
+return isAuthenticated ? children :  <Navigate to="/login"  />
 }
 
-// Usage in App.jsx\
-<Route\
-path="/dashboard"\
-element={\
-<ProtectedRoute isAuthenticated={user.isLoggedIn}>\
-<Dashboard />\
-</ProtectedRoute>\
-}\
+// Usage in App.jsx
+<Route
+path="/dashboard"
+element={
+<ProtectedRoute isAuthenticated={user.isLoggedIn}>
+<Dashboard />
+</ProtectedRoute>
+}
 />
 
 ```
 
 ### Role-Based Access
 
-```// RoleProtectedRoute.jsx\
+```jsx
+// RoleProtectedRoute.jsx
 import  { Navigate }  from  'react-router-dom'
 
-function  RoleProtectedRoute({ children, userRole, requiredRole })  {\
-return userRole === requiredRole ? children :  <Navigate to="/unauthorized"  />\
+function  RoleProtectedRoute({ children, userRole, requiredRole })  {
+return userRole === requiredRole ? children :  <Navigate to="/unauthorized"  />
 }
 
-// Usage\
-<Route\
-path="/admin"\
-element={\
-<RoleProtectedRoute userRole={user.role} requiredRole="admin">\
-<AdminPanel />\
-</RoleProtectedRoute>\
-}\
+// Usage
+<Route
+path="/admin"
+element={
+<RoleProtectedRoute userRole={user.role} requiredRole="admin">
+<AdminPanel />
+</RoleProtectedRoute>
+}
 />
 
 ```
@@ -3505,67 +3571,70 @@ Advanced Patterns
 
 ### Route Guards with Redirects
 
-```// AuthGuard.jsx\
+```jsx
+// AuthGuard.jsx
 import  { Navigate, useLocation }  from  'react-router-dom'
 
-function  AuthGuard({ children })  {\
-const location =  useLocation()\
+function  AuthGuard({ children })  {
+const location =  useLocation()
 const isAuthenticated =  checkAuthStatus()
 
-if  (!isAuthenticated)  {\
-// Redirect to login with return URL\
-return  <Navigate to="/login" state={{  from: location }} replace />\
+if  (!isAuthenticated)  {
+// Redirect to login with return URL
+return  <Navigate to="/login" state={{  from: location }} replace />
 }
 
-return children\
+return children
 }
 
 ```
 
 ### Lazy Loading Routes
 
-```// LazyRoute.jsx\
+```jsx
+// LazyRoute.jsx
 import  { lazy, Suspense }  from  'react'
 
 const LazyComponent =  lazy(()  =>  import('./HeavyComponent'))
 
-function  LazyRoute()  {\
-return  (\
-<Suspense fallback={<div>Loading...</div>}>\
-<LazyComponent />\
-</Suspense>\
-)\
+function  LazyRoute()  {
+return  (
+<Suspense fallback={<div>Loading...</div>}>
+<LazyComponent />
+</Suspense>
+)
 }
 
-// Usage in routes\
+// Usage in routes
 <Route path="/heavy" element={<LazyRoute />}  />
 
 ```
 
 ### Custom Hooks for Navigation
 
-```// useNavigation.jsx\
+```jsx
+// useNavigation.jsx
 import  { useNavigate, useLocation }  from  'react-router-dom'
 
-function  useAppNavigation()  {\
-const navigate =  useNavigate()\
+function  useAppNavigation()  {
+const navigate =  useNavigate()
 const location =  useLocation()
 
-const  goBack  =  ()  =>  navigate(-1)\
-const  goForward  =  ()  =>  navigate(1)\
-const  goHome  =  ()  =>  navigate('/')\
+const  goBack  =  ()  =>  navigate(-1)
+const  goForward  =  ()  =>  navigate(1)
+const  goHome  =  ()  =>  navigate('/')
 const  goToProfile  =  (userId)  =>  navigate(```/users/${userId}```)
 
 const  isCurrentPath  =  (path)  => location.pathname === path
 
-return  {\
-goBack,\
-goForward,\
-goHome,\
-goToProfile,\
-isCurrentPath,\
-currentPath: location.pathname\
-}\
+return  {
+goBack,
+goForward,
+goHome,
+goToProfile,
+isCurrentPath,
+currentPath: location.pathname
+}
 }
 
 ```
@@ -3575,52 +3644,54 @@ Error Handling
 
 ### 404 Not Found
 
-```// NotFound.jsx\
+```jsx
+// NotFound.jsx
 import  { Link }  from  'react-router-dom'
 
-function  NotFound()  {\
-return  (\
-<div>\
-<h1>404  - Page Not Found</h1>\
-<p>The page you're looking for doesn't exist.</p>\
-<Link to="/">Go Home</Link>\
-</div>\
-)\
+function  NotFound()  {
+return  (
+<div>
+<h1>404  - Page Not Found</h1>
+<p>The page you're looking for doesn't exist.</p>
+<Link to="/">Go Home</Link>
+</div>
+)
 }
 
-// Add to routes\
+// Add to routes
 <Route path="*" element={<NotFound />}  />
 
 ```
 
 ### Error Boundaries
 
-```// ErrorBoundary.jsx\
-import  { Component }  from  'react'\
+```jsx
+// ErrorBoundary.jsx
+import  { Component }  from  'react'
 import  { Link }  from  'react-router-dom'
 
-class  ErrorBoundary  extends  Component  {\
-constructor(props)  {\
-super(props)\
-this.state =  {  hasError:  false  }\
+class  ErrorBoundary  extends  Component  {
+constructor(props)  {
+super(props)
+this.state =  {  hasError:  false  }
 }
 
-static  getDerivedStateFromError(error)  {\
-return  {  hasError:  true  }\
+static  getDerivedStateFromError(error)  {
+return  {  hasError:  true  }
 }
 
-render()  {\
-if  (this.state.hasError)  {\
-return  (\
-<div>\
-<h1>Something went wrong</h1>\
-<Link to="/">Go Home</Link>\
-</div>\
-)\
+render()  {
+if  (this.state.hasError)  {
+return  (
+<div>
+<h1>Something went wrong</h1>
+<Link to="/">Go Home</Link>
+</div>
+)
 }
 
-return  this.props.children\
-}\
+return  this.props.children
+}
 }
 
 ```
@@ -3630,66 +3701,68 @@ Performance Optimization
 
 ### Code Splitting
 
-```// LazyRoute.jsx\
+```jsx
+// LazyRoute.jsx
 import  { lazy, Suspense }  from  'react'
 
-const Home =  lazy(()  =>  import('./pages/Home'))\
+const Home =  lazy(()  =>  import('./pages/Home'))
 const About =  lazy(()  =>  import('./pages/About'))
 
-function  App()  {\
-return  (\
-<Suspense fallback={<div>Loading...</div>}>\
-<Routes>\
-<Route path="/" element={<Home />}  />\
-<Route path="/about" element={<About />}  />\
-</Routes>\
-</Suspense>\
-)\
+function  App()  {
+return  (
+<Suspense fallback={<div>Loading...</div>}>
+<Routes>
+<Route path="/" element={<Home />}  />
+<Route path="/about" element={<About />}  />
+</Routes>
+</Suspense>
+)
 }
 
 ```
 
 ### Route-Based Data Fetching
 
-```// PostDetail.jsx\
-import  { useParams, useNavigate }  from  'react-router-dom'\
+```jsx
+// PostDetail.jsx
+import  { useParams, useNavigate }  from  'react-router-dom'
 import  { useEffect, useState }  from  'react'
 
-function  PostDetail()  {\
-const  { id }  =  useParams()\
-const navigate =  useNavigate()\
-const  [post, setPost]  =  useState(null)\
+function  PostDetail()  {
+const  { id }  =  useParams()
+const navigate =  useNavigate()
+const  [post, setPost]  =  useState(null)
 const  [loading, setLoading]  =  useState(true)
 
-useEffect(()  =>  {\
-async  function  fetchPost()  {\
-try  {\
-const response =  await  fetch(```/api/posts/${id}```)\
-if  (!response.ok)  {\
-navigate('/404')\
-return\
-}\
-const data =  await response.json()\
-setPost(data)\
-}  catch  (error)  {\
-navigate('/error')\
-}  finally  {\
-setLoading(false)\
-}\
+useEffect(()  =>  {
+async  function  fetchPost()  {
+try  {
+const response =  await  fetch(```/api/posts/${id}```)
+if  (!response.ok)  {
+navigate('/404')
+return
+}
+const data =  await response.json()
+setPost(data)
+}  catch  (error)  {
+navigate('/error')
+}  finally  {
+setLoading(false)
+}
 }
 
-fetchPost()\
+fetchPost()
 },  [id, navigate])
 
-if  (loading)  return  <div>Loading...</div>\
+if  (loading)  return  <div>Loading...</div>
 if  (!post)  return  <div>Post not found</div>
 
-return  (\
-<article>\
-<h1>{post.title}</h1>\
-<p>{post.content}</p>\
-</article>\
-)\
+return  (
+<article>
+<h1>{post.title}</h1>
+<p>{post.content}</p>
+</article>
+)
 }
 
 ```
@@ -3697,80 +3770,83 @@ return  (\
 Best Practices
 --------------
 
-### 1\. Route Organization
+### 1. Route Organization
 
-```// Organize routes by feature\
-const routes =  [\
-{\
-path:  '/',\
-element:  <Layout />,\
-children:  [\
-{  index:  true,  element:  <Home />  },\
-{  path:  'about',  element:  <About />  },\
-{  path:  'contact',  element:  <Contact />  },\
-{\
-path:  'blog',\
-element:  <BlogLayout />,\
-children:  [\
-{  index:  true,  element:  <BlogList />  },\
-{  path:  ':slug',  element:  <BlogPost />  }\
-]\
-}\
-]\
-}\
+```jsx
+// Organize routes by feature
+const routes =  [
+{
+path:  '/',
+element:  <Layout />,
+children:  [
+{  index:  true,  element:  <Home />  },
+{  path:  'about',  element:  <About />  },
+{  path:  'contact',  element:  <Contact />  },
+{
+path:  'blog',
+element:  <BlogLayout />,
+children:  [
+{  index:  true,  element:  <BlogList />  },
+{  path:  ':slug',  element:  <BlogPost />  }
+]
+}
+]
+}
 ]
 
 ```
 
-### 2\. Consistent Navigation
+### 2. Consistent Navigation
 
-```// Create a centralized navigation configuration\
-const navigationItems =  [\
-{  path:  '/',  label:  'Home'  },\
-{  path:  '/about',  label:  'About'  },\
-{  path:  '/contact',  label:  'Contact'  },\
-{  path:  '/blog',  label:  'Blog'  }\
+```jsx
+// Create a centralized navigation configuration
+const navigationItems =  [
+{  path:  '/',  label:  'Home'  },
+{  path:  '/about',  label:  'About'  },
+{  path:  '/contact',  label:  'Contact'  },
+{  path:  '/blog',  label:  'Blog'  }
 ]
 
-function  Navigation()  {\
-return  (\
-<nav>\
-{navigationItems.map(item  =>  (\
-<NavLink key={item.path} to={item.path}>\
-{item.label}\
-</NavLink>\
-))}\
-</nav>\
-)\
+function  Navigation()  {
+return  (
+<nav>
+{navigationItems.map(item  =>  (
+<NavLink key={item.path} to={item.path}>
+{item.label}
+</NavLink>
+))}
+</nav>
+)
 }
 
 ```
 
-### 3\. URL State Management
+### 3. URL State Management
 
-```// Use URL state for filterable data\
-function  ProductList()  {\
-const  [searchParams, setSearchParams]  =  useSearchParams()\
+```jsx
+// Use URL state for filterable data
+function  ProductList()  {
+const  [searchParams, setSearchParams]  =  useSearchParams()
 const  [products, setProducts]  =  useState([])
 
-const category = searchParams.get('category')\
+const category = searchParams.get('category')
 const sort = searchParams.get('sort')
 
-useEffect(()  =>  {\
-// Fetch products based on URL parameters\
-fetchProducts({ category, sort }).then(setProducts)\
+useEffect(()  =>  {
+// Fetch products based on URL parameters
+fetchProducts({ category, sort }).then(setProducts)
 },  [category, sort])
 
-const  updateFilters  =  (newFilters)  =>  {\
-setSearchParams(prev  =>  ({  ...prev,  ...newFilters }))\
+const  updateFilters  =  (newFilters)  =>  {
+setSearchParams(prev  =>  ({  ...prev,  ...newFilters }))
 }
 
-return  (\
-<div>\
-<FilterControls onFilterChange={updateFilters}  />\
-<ProductGrid products={products}  />\
-</div>\
-)\
+return  (
+<div>
+<FilterControls onFilterChange={updateFilters}  />
+<ProductGrid products={products}  />
+</div>
+)
 }
 
 ```
@@ -3778,98 +3854,102 @@ return  (\
 Common Pitfalls
 ---------------
 
-### 1\. Forgetting BrowserRouter
+### 1. Forgetting BrowserRouter
 
-```// ❌ Wrong - Routes won't work\
-function  App()  {\
-return  (\
-<Routes>\
-<Route path="/" element={<Home />}  />\
-</Routes>\
-)\
+```jsx
+// ❌ Wrong - Routes won't work
+function  App()  {
+return  (
+<Routes>
+<Route path="/" element={<Home />}  />
+</Routes>
+)
 }
 
-// ✅ Correct - Wrap with BrowserRouter\
-function  App()  {\
-return  (\
-<BrowserRouter>\
-<Routes>\
-<Route path="/" element={<Home />}  />\
-</Routes>\
-</BrowserRouter>\
-)\
+// ✅ Correct - Wrap with BrowserRouter
+function  App()  {
+return  (
+<BrowserRouter>
+<Routes>
+<Route path="/" element={<Home />}  />
+</Routes>
+</BrowserRouter>
+)
 }
 
 ```
 
-### 2\. Using Anchor Tags Instead of Link
+### 2. Using Anchor Tags Instead of Link
 
-```// ❌ Wrong - Causes full page reload\
+```jsx
+// ❌ Wrong - Causes full page reload
 <a href="/about">About</a>
 
-// ✅ Correct - Uses client-side routing\
+// ✅ Correct - Uses client-side routing
 <Link to="/about">About</Link>
 
 ```
 
-### 3\. Not Handling Route Parameters
+### 3. Not Handling Route Parameters
 
-```// ❌ Wrong - No error handling\
-function  UserProfile()  {\
-const  { id }  =  useParams()\
+```jsx
+// ❌ Wrong - No error handling
+function  UserProfile()  {
+const  { id }  =  useParams()
 const user = users.find(u  => u.id === id)  // Could be undefined
 
-return  <h1>{user.name}</h1>  // Error if user not found\
+return  <h1>{user.name}</h1>  // Error if user not found
 }
 
-// ✅ Correct - Handle missing data\
-function  UserProfile()  {\
-const  { id }  =  useParams()\
+// ✅ Correct - Handle missing data
+function  UserProfile()  {
+const  { id }  =  useParams()
 const user = users.find(u  => u.id === id)
 
-if  (!user)  {\
-return  <div>User not found</div>\
+if  (!user)  {
+return  <div>User not found</div>
 }
 
-return  <h1>{user.name}</h1>\
+return  <h1>{user.name}</h1>
 }
 
 ```
 
-### 4\. Stale Closures in Navigation
+### 4. Stale Closures in Navigation
 
-```// ❌ Wrong - Stale closure\
-function  SearchForm()  {\
-const  [query, setQuery]  =  useState('')\
+```jsx
+// ❌ Wrong - Stale closure
+function  SearchForm()  {
+const  [query, setQuery]  =  useState('')
 const navigate =  useNavigate()
 
-const  handleSubmit  =  ()  =>  {\
-// query might be stale\
-navigate(```/search?q=${query}```)\
+const  handleSubmit  =  ()  =>  {
+// query might be stale
+navigate(```/search?q=${query}```)
 }
 
-return  (\
-<form onSubmit={handleSubmit}>\
-<input value={query} onChange={e  =>  setQuery(e.target.value)}  />\
-</form>\
-)\
+return  (
+<form onSubmit={handleSubmit}>
+<input value={query} onChange={e  =>  setQuery(e.target.value)}  />
+</form>
+)
 }
 
-// ✅ Correct - Use current value\
-function  SearchForm()  {\
-const  [query, setQuery]  =  useState('')\
+// ✅ Correct - Use current value
+function  SearchForm()  {
+const  [query, setQuery]  =  useState('')
 const navigate =  useNavigate()
 
-const  handleSubmit  =  (e)  =>  {\
-e.preventDefault()\
-navigate(```/search?q=${query}```)\
+const  handleSubmit  =  (e)  =>  {
+e.preventDefault()
+navigate(```/search?q=${query}```)
 }
 
-return  (\
-<form onSubmit={handleSubmit}>\
-<input value={query} onChange={e  =>  setQuery(e.target.value)}  />\
-</form>\
-)\
+return  (
+<form onSubmit={handleSubmit}>
+<input value={query} onChange={e  =>  setQuery(e.target.value)}  />
+</form>
+)
 }
 
 ```
@@ -3879,42 +3959,44 @@ Testing React Router
 
 ### Testing Routes
 
-```// Route.test.jsx\
-import  { render, screen }  from  '@testing-library/react'\
-import  { BrowserRouter }  from  'react-router-dom'\
+```jsx
+// Route.test.jsx
+import  { render, screen }  from  '@testing-library/react'
+import  { BrowserRouter }  from  'react-router-dom'
 import App from  './App'
 
-test('renders home page',  ()  =>  {\
-render(\
-<BrowserRouter>\
-<App />\
-</BrowserRouter>\
+test('renders home page',  ()  =>  {
+render(
+<BrowserRouter>
+<App />
+</BrowserRouter>
 )
 
-expect(screen.getByText('Home Page')).toBeInTheDocument()\
+expect(screen.getByText('Home Page')).toBeInTheDocument()
 })
 
 ```
 
 ### Testing Navigation
 
-```// Navigation.test.jsx\
-import  { render, screen }  from  '@testing-library/react'\
-import userEvent from  '@testing-library/user-event'\
-import  { BrowserRouter }  from  'react-router-dom'\
+```jsx
+// Navigation.test.jsx
+import  { render, screen }  from  '@testing-library/react'
+import userEvent from  '@testing-library/user-event'
+import  { BrowserRouter }  from  'react-router-dom'
 import Navigation from  './Navigation'
 
-test('navigates to about page',  async  ()  =>  {\
+test('navigates to about page',  async  ()  =>  {
 const user = userEvent.setup()
 
-render(\
-<BrowserRouter>\
-<Navigation />\
-</BrowserRouter>\
+render(
+<BrowserRouter>
+<Navigation />
+</BrowserRouter>
 )
 
-await user.click(screen.getByText('About'))\
-expect(window.location.pathname).toBe('/about')\
+await user.click(screen.getByText('About'))
+expect(window.location.pathname).toBe('/about')
 })
 
 ```
@@ -3954,14 +4036,14 @@ React Router is essential for building modern React applications. Key takeaways:
 Master these concepts and you'll be able to build sophisticated, navigable React applications that provide excellent user experiences.
 
 ## 6. Context API & State Management Tutorial
-Introduction
+**Introduction**
 In this tutorial, you'll learn how to use React's Context API for global state management and how to integrate it with Material-UI (MUI) theming. The Context API is React's built-in solution for sharing state across multiple components without prop drilling, making it perfect for managing global application state like themes, user authentication, and shopping carts.
 
-Concepts Overview
+**Concepts Overview**
 What is the Context API?
 The Context API is a React feature that allows you to share data across multiple components without having to pass props down through every level of the component tree. This solves the "prop drilling" problem where you need to pass data through components that don't actually use it.
 
-When to Use Context
+**When to Use Context**
 Use Context when you have:
 
 Global state that multiple components need access to
@@ -3978,13 +4060,15 @@ Simple parent-child communication - props are more appropriate
 Code Examples
 Basic Context Setup
 Let's start with a simple theme context:
-
+```jsx
 // ThemeContext.js
 import React, { createContext, useContext, useState } from 'react';
-
+```
+```jsx
 // 1. Create the context with a default value
 const ThemeContext = createContext();
-
+```
+```jsx
 // 2. Create a custom hook for using the context
 export const useTheme = () => {
   const context = useContext(ThemeContext);
@@ -3993,7 +4077,8 @@ export const useTheme = () => {
   }
   return context;
 };
-
+```
+```jsx
 // 3. Create the provider component
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -4015,8 +4100,9 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
-
+```
 Using Context in Components
+```jsx
 // Header.jsx
 import React from 'react';
 import { useTheme } from './contexts/ThemeContext';
@@ -4038,10 +4124,10 @@ const Header = () => {
 };
 
 export default Header;
-
+```
 MUI Theme Integration
 Material-UI provides its own theming system that integrates beautifully with React Context:
-
+```jsx
 // ThemeProvider.js
 import React, { createContext, useContext, useState } from 'react';
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/styles';
@@ -4113,10 +4199,10 @@ export const CustomThemeProvider = ({ children }) => {
     </CustomThemeContext.Provider>
   );
 };
-
+```
 Complex State Management with useReducer
 For complex state that involves multiple actions, useReducer is often better than useState:
-
+```jsx
 // CartContext.js
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
@@ -4263,10 +4349,10 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
-
+```
 Authentication Context Example
 Here's how to create an authentication context:
-
+```jsx
 // AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
@@ -4384,9 +4470,9 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
-Practical Exercises
-Exercise 1: Basic Theme Context
+```
+### Practical Exercises
+**Exercise 1: Basic Theme Context**
 Create a simple theme context and implement it in a basic app:
 
 // 1. Create ThemeContext.js with light/dark mode
@@ -4395,7 +4481,7 @@ Create a simple theme context and implement it in a basic app:
 // 4. Wrap your app with ThemeProvider
 // 5. Test theme switching functionality
 
-Exercise 2: MUI Theme Integration
+**Exercise 2: MUI Theme Integration**
 Integrate your theme context with MUI:
 
 // 1. Install MUI: npm install @mui/material @emotion/react @emotion/styled
@@ -4404,7 +4490,7 @@ Integrate your theme context with MUI:
 // 4. Use MUI components in your app
 // 5. Test responsive design and dark mode
 
-Exercise 3: Shopping Cart Context
+**Exercise 3: Shopping Cart Context**
 Build a shopping cart using Context and useReducer:
 
 // 1. Create CartContext with useReducer
@@ -4413,7 +4499,7 @@ Build a shopping cart using Context and useReducer:
 // 4. Create cart display components
 // 5. Test cart functionality
 
-Exercise 4: Multiple Contexts
+**Exercise 4: Multiple Contexts**
 Combine multiple contexts in one application:
 
 // 1. Create both ThemeContext and CartContext
@@ -4422,8 +4508,9 @@ Combine multiple contexts in one application:
 // 4. Create components that use multiple contexts
 // 5. Test all functionality together
 
-Best Practices
-1. Context Organization
+### Best Practices
+**1. Context Organization**
+```jsx
 // Good: Separate contexts by concern
 const ThemeContext = createContext();
 const AuthContext = createContext();
@@ -4431,8 +4518,9 @@ const CartContext = createContext();
 
 // Bad: One giant context for everything
 const AppContext = createContext();
-
-2. Custom Hooks
+```
+**2. Custom Hooks**
+```jsx
 // Good: Create custom hooks for context usage
 export const useTheme = () => {
   const context = useContext(ThemeContext);
@@ -4444,16 +4532,18 @@ export const useTheme = () => {
 
 // Bad: Using useContext directly in components
 const theme = useContext(ThemeContext); // No error handling
-
-3. Performance Optimization
+```
+**3. Performance Optimization**
+```jsx
 // Good: Split contexts to avoid unnecessary re-renders
 const ThemeContext = createContext();
 const UserContext = createContext();
 
 // Bad: Putting frequently changing data with stable data
 const AppContext = createContext(); // Contains both theme and user data
-
-4. Error Handling
+```
+**4. Error Handling**
+```jsx
 // Good: Always check if context exists
 export const useTheme = () => {
   const context = useContext(ThemeContext);
@@ -4465,8 +4555,9 @@ export const useTheme = () => {
 
 // Bad: No error handling
 export const useTheme = () => useContext(ThemeContext);
-
-5. Default Values
+```
+**5. Default Values**
+```jsx
 // Good: Provide meaningful default values
 const ThemeContext = createContext({
   isDarkMode: false,
@@ -4476,16 +4567,18 @@ const ThemeContext = createContext({
 
 // Bad: No default value
 const ThemeContext = createContext();
-
-Common Pitfalls
-1. Overusing Context
+```
+### Common Pitfalls
+**1. Overusing Context**
+```jsx
 // Bad: Using context for local state
 const LocalStateContext = createContext();
 
 // Good: Use useState for local state
 const [count, setCount] = useState(0);
-
-2. Creating Context in Render
+```
+**2. Creating Context in Render**
+```jsx
 // Bad: Creating context inside component
 function MyComponent() {
   const MyContext = createContext(); // This creates a new context on every render!
@@ -4498,8 +4591,9 @@ const MyContext = createContext();
 function MyComponent() {
   // ...
 }
-
-3. Not Memoizing Context Value
+```
+**3. Not Memoizing Context Value**
+```jsx
 // Bad: Creating new object on every render
 function MyProvider({ children }) {
   const [state, setState] = useState({});
@@ -4523,8 +4617,9 @@ function MyProvider({ children }) {
     </MyContext.Provider>
   );
 }
-
-4. Missing Provider
+```
+**4. Missing Provider**
+```jsx
 // Bad: Using context without provider
 function MyComponent() {
   const theme = useTheme(); // Error: useTheme must be used within a ThemeProvider
@@ -4539,7 +4634,7 @@ function App() {
     </ThemeProvider>
   );
 }
-
+```
 Additional Resources
 Documentation
 React Context API
@@ -4690,7 +4785,7 @@ Vercel provides a swift and uncomplicated method for deploying web projects, fea
 
 Moreover, Vercel boasts a user-friendly interface and seamless integrations with well-known development tools like GitHub, GitLab, and Bitbucket, streamlining the setup and management of your projects. Additionally, Vercel extends a generous free plan encompassing various features, making it an excellent choice for small-scale projects and personal usage.
 
-💡 Learn more about Vercel here: [Resource\
+💡 Learn more about Vercel here: [Resource
 ](https://vercel.com/)
 
 * * * * *
@@ -4736,42 +4831,42 @@ That will take you to this screen (see below). Now click on the Install button w
 
 Sign into your GitHub account if it prompts you to do so (this should only happen if you're not already logged in):
 
-![image.png](https://cdn.disco.co/media/image_4b3df081-f007-441c-87d4-9fd41f77a2a5.png)\
+![image.png](https://cdn.disco.co/media/image_4b3df081-f007-441c-87d4-9fd41f77a2a5.png)
 If it asks you where to install it, choose the right account (this may or may not happen to you):
 
 ![image.png](https://cdn.disco.co/media/image_5bd69cc2-7c3b-47df-b5cf-23b8294e58d0.png)
 
-Choose Only select repositories\
-Click on Select repositories\
+Choose Only select repositories
+Click on Select repositories
 Choose your-github-username/vercel-trivia or the other repository you want to deploy to Vercel:
 
-![image.png](https://cdn.disco.co/media/image_25b38d41-4c8f-464f-98c1-ad3f9a56e971.png)\
+![image.png](https://cdn.disco.co/media/image_25b38d41-4c8f-464f-98c1-ad3f9a56e971.png)
 Scroll further down and click on Install
 
 ![image.png](https://cdn.disco.co/media/image_fa190e7e-1762-454d-bcb9-9a3f72fd5e0e.png)
 
-It will take you back to the main Vercel page\
-The chosen repository should show\
+It will take you back to the main Vercel page
+The chosen repository should show
 Click on the Import button:
 
 ![image.png](https://cdn.disco.co/media/image_854d0409-00ae-494c-8192-0127cc47d712.png)
 
-It will take you to another page where you can double check all the settings/selections\
-The Project Name will need to be unique from every other Vercel app on their platform\
-We shouldn't have to change anything else\
+It will take you to another page where you can double check all the settings/selections
+The Project Name will need to be unique from every other Vercel app on their platform
+We shouldn't have to change anything else
 Click on Deploy
 
-![image.png](https://cdn.disco.co/media/image_7c9ad6cd-a859-4a1a-bae7-b957fe446c11.png)\
+![image.png](https://cdn.disco.co/media/image_7c9ad6cd-a859-4a1a-bae7-b957fe446c11.png)
 Vercel automatically detects all the needed dependencies for deploying our app and installs/configures them for us
 
-![Captura de pantalla 2024-02-28 a las 15.34.11.png](https://cdn.disco.co/media/Captura_de_pantalla_2024-02-28_a_las_15_34_11_1eff957e-61a7-428f-9e4c-d6f5f08b75cb.png)\
+![Captura de pantalla 2024-02-28 a las 15.34.11.png](https://cdn.disco.co/media/Captura_de_pantalla_2024-02-28_a_las_15_34_11_1eff957e-61a7-428f-9e4c-d6f5f08b75cb.png)
 Once it's done we should get a screen that looks like the image below:
 
 Keep this window open
 
 To view the live app, click on the image/screenshot of the application and it will take you to the URL of the deployed application
 
-![image.png](https://cdn.disco.co/media/image_ab936dcd-46c5-4bae-b63f-218d2ffb59bf.png)\
+![image.png](https://cdn.disco.co/media/image_ab936dcd-46c5-4bae-b63f-218d2ffb59bf.png)
 In our case it's <https://vercel-trivia.vercel.app/>
 
 Yours will be different.
