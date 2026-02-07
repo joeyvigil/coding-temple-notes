@@ -132,56 +132,63 @@ Click me\
 
 1.  Single Parent Element: JSX must return a single parent element
 
-    ```jsx
-    ❌ Wrong - multiple elements\
-    return  (\
-    <h1>Title</h1>\
-    <p>Description</p>\
-    );
+```jsx
+❌ Wrong - multiple elements\
+return  (\
+<h1>Title</h1>\
+<p>Description</p>\
+);
 
-    // ✅ Correct - wrapped in div\
-    return  (\
-    <div>\
-    <h1>Title</h1>\
-    <p>Description</p>\
-    </div>\
-    );
+// ✅ Correct - wrapped in div\
+return  (\
+<div>\
+<h1>Title</h1>\
+<p>Description</p>\
+</div>\
+);
 
-    // ✅ Correct - using React Fragment\
-    return  (\
-    <>\
-    <h1>Title</h1>\
-    <p>Description</p>\
-    </>\
-    );
+// ✅ Correct - using React Fragment\
+return  (\
+<>\
+<h1>Title</h1>\
+<p>Description</p>\
+</>\
+);
 
-    ```
-1.  Use className instead of class:```// ❌ Wrong\
-    <div class="container">
+```
+1.  Use className instead of class:
+```jsx
+// ❌ Wrong\
+<div class="container">
 
-    // ✅ Correct\
-    <div className="container">
+// ✅ Correct\
+<div className="container">
 
-    ```
-2.  Self-closing tags must have a slash:```// ❌ Wrong\
-    <img src="image.jpg">
+```
 
-    // ✅ Correct\
-    <img src="image.jpg"  />
+3.  Self-closing tags must have a slash:
+```jsx
+// ❌ Wrong\
+<img src="image.jpg">
 
-    ```
-3.  JavaScript expressions in curly braces:```const name =  "Dylan";\
-    const age =  25;
+// ✅ Correct\
+<img src="image.jpg"  />
 
-    return  (\
-    <div>\
-    <p>Name:  {name}</p>\
-    <p>Age:  {age}</p>\
-    <p>Next year:  {age +  1}</p>\
-    </div>\
-    );
+```
+5.  JavaScript expressions in curly braces:
+```jsx
+const name =  "Dylan";\
+const age =  25;
 
-    ```
+return  (\
+<div>\
+<p>Name:  {name}</p>\
+<p>Age:  {age}</p>\
+<p>Next year:  {age +  1}</p>\
+</div>\
+);
+
+```
 
 ### Props in React
 
@@ -189,7 +196,8 @@ Props (short for properties) are how you pass data from parent to child componen
 
 #### Basic Props Usage
 
-```// Card.jsx - Child component\
+```jsx
+// Card.jsx - Child component\
 function  Card({ title, description, image })  {\
 return  (\
 <div className="card">\
@@ -222,7 +230,8 @@ image="https://via.placeholder.com/300x200"\
 
 #### Props with Default Values
 
-```function  Button({ text, color =  "blue", size =  "medium"  })  {\
+```jsx
+function  Button({ text, color =  "blue", size =  "medium"  })  {\
 return  (\
 <button\
 className={```btn btn-${color} btn-${size}```}\
@@ -240,7 +249,8 @@ className={```btn btn-${color} btn-${size}```}\
 
 #### Props with Objects and Arrays
 
-```function  UserProfile({ user, skills, isOnline })  {\
+```jsx
+function  UserProfile({ user, skills, isOnline })  {\
 return  (\
 <div className="profile">\
 <img src={user.avatar} alt={user.name}  />\
@@ -283,7 +293,8 @@ Component composition is the practice of building complex UIs by combining simpl
 
 #### Layout Components
 
-```// Header.jsx\
+```jsx
+// Header.jsx\
 function  Header({ title, navigation })  {\
 return  (\
 <header className="header">\
@@ -346,7 +357,8 @@ year="2024"\
 
 #### Card Component with Composition
 
-```// Card.jsx\
+```jsx
+// Card.jsx\
 function  Card({ children, className =  ""  })  {\
 return  (\
 <div className={```card ${className}```}>\
@@ -424,7 +436,8 @@ Requirements:
 
 Solution:
 
-```function  Welcome({ name, timeOfDay })  {\
+```jsx
+function  Welcome({ name, timeOfDay })  {\
 const greeting =  ```Good ${timeOfDay}, ${name}!```;
 
 return  (\
@@ -453,7 +466,8 @@ Requirements:
 
 Solution:
 
-```function  ProductCard({\
+```jsx
+function  ProductCard({\
 name,\
 price,\
 originalPrice,\
@@ -514,7 +528,8 @@ Requirements:
 
 Solution:
 
-```function  Navigation({ items, activeItem, onItemClick })  {\
+```jsx
+function  Navigation({ items, activeItem, onItemClick })  {\
 const  [isMobileMenuOpen, setIsMobileMenuOpen]  =  useState(false);
 
 return  (\
@@ -574,7 +589,8 @@ Best Practices
 -   Use descriptive names that indicate purpose
 -   Avoid generic names like "Component" or "Item"
 
-```// ✅ Good\
+```jsx
+// ✅ Good\
 function  UserProfile()  {  }\
 function  ProductCard()  {  }\
 function  NavigationMenu()  {  }
@@ -593,7 +609,8 @@ function  menu()  {  }
 -   Keep props simple and focused
 -   Use TypeScript or PropTypes for type checking
 
-```// ✅ Good\
+```jsx
+// ✅ Good\
 function  Button({ text, variant =  "primary", size =  "medium"  })  {  }
 
 // ❌ Bad\
@@ -608,7 +625,8 @@ function  Button({ t, v, s })  {  }
 -   Group related components in folders
 -   Keep components small and focused
 
-```src/\
+```txt
+src/\
 ├── components/\
 │ ├── ui/\
 │ │ ├── Button.jsx\
@@ -631,7 +649,8 @@ function  Button({ t, v, s })  {  }
 -   Use conditional rendering appropriately
 -   Keep JSX readable and well-formatted
 
-```// ✅ Good\
+```jsx
+// ✅ Good\
 function  UserList({ users, showOnlineOnly })  {\
 const filteredUsers = showOnlineOnly\
 ? users.filter(user  => user.isOnline)\
@@ -662,7 +681,8 @@ Common Pitfalls
 
 ### 1\. Forgetting to Export Components
 
-```// ❌ Wrong - component not exported\
+```jsx
+// ❌ Wrong - component not exported\
 function  MyComponent()  {\
 return  <div>Hello</div>;\
 }
@@ -677,7 +697,8 @@ export  default MyComponent;
 
 ### 2\. Using class instead of className
 
-```// ❌ Wrong\
+```jsx
+// ❌ Wrong\
 <div class="container">
 
 // ✅ Correct\
@@ -687,7 +708,8 @@ export  default MyComponent;
 
 ### 3\. Not Providing Keys for Lists
 
-```// ❌ Wrong - missing keys\
+```jsx
+// ❌ Wrong - missing keys\
 {items.map(item  =>  <li>{item.name}</li>)}
 
 // ✅ Correct - with keys\
@@ -697,7 +719,8 @@ export  default MyComponent;
 
 ### 4\. Mutating Props
 
-```// ❌ Wrong - mutating props\
+```jsx
+// ❌ Wrong - mutating props\
 function  UserCard({ user })  {\
 user.name =  "New Name";  // Don't do this!\
 return  <div>{user.name}</div>;\
@@ -712,7 +735,8 @@ return  <div>{user.name}</div>;\
 
 ### 5\. Not Handling Missing Props
 
-```// ❌ Wrong - could cause errors\
+```jsx
+// ❌ Wrong - could cause errors\
 function  UserCard({ user })  {\
 return  <div>{user.name.toUpperCase()}</div>;\
 }
@@ -804,8 +828,8 @@ The ```useState``` hook is React's way of adding state to functional component
 1.  The current state value
 2.  A function to update that state
 
-```const  [stateVariable, setStateFunction]  =  useState(initialValue);
-
+```jsx
+const  [stateVariable, setStateFunction]  =  useState(initialValue);
 ```
 
 ### Event Handling in React
@@ -817,7 +841,8 @@ Code Examples
 
 ### Basic useState Usage
 
-```import React,  { useState }  from  'react';
+```jsx
+import React,  { useState }  from  'react';
 
 function  Counter()  {\
 // Declare state variable and setter function\
@@ -852,7 +877,8 @@ Explanation:
 
 ### Multiple State Variables
 
-```import React,  { useState }  from  'react';
+```jsx
+import React,  { useState }  from  'react';
 
 function  UserProfile()  {\
 // Multiple state variables\
@@ -923,7 +949,8 @@ Key Points:
 
 ### Object State Management
 
-```import React,  { useState }  from  'react';
+```jsx
+import React,  { useState }  from  'react';
 
 function  TodoItem()  {\
 const  [todo, setTodo]  =  useState({\
@@ -1022,7 +1049,8 @@ Important Notes:
 
 ### Array State Management
 
-```import React,  { useState }  from  'react';
+```jsx
+import React,  { useState }  from  'react';
 
 function  ShoppingList()  {\
 const  [items, setItems]  =  useState([]);\
@@ -1216,7 +1244,8 @@ Best Practices
 -   Group related state into objects when appropriate
 -   Avoid deeply nested state structures
 
-```// Good: Simple, flat state\
+```jsx
+// Good: Simple, flat state\
 const  [name, setName]  =  useState('');\
 const  [email, setEmail]  =  useState('');
 
@@ -1235,7 +1264,8 @@ preferences:  {}\
 -   Use functional updates when the new state depends on the previous state
 -   Never mutate state directly
 
-```// Good: Functional update\
+```jsx
+// Good: Functional update\
 setCount(prevCount  => prevCount +  1);
 
 // Good: Object update\
@@ -1255,7 +1285,8 @@ user.name = newName;  // Don't do this!
 -   Extract complex logic into separate functions
 -   Handle edge cases (empty inputs, validation)
 
-```// Good: Descriptive names and error handling\
+```jsx
+// Good: Descriptive names and error handling\
 const  handleNameChange  =  (event)  =>  {\
 const value = event.target.value.trim();\
 if  (value.length <=  50)  {\
@@ -1282,7 +1313,8 @@ setEmailValid(validateEmail(value));\
 -   Use useCallback for expensive event handlers
 -   Consider useMemo for expensive calculations
 
-```// Good: Memoized event handler\
+```jsx
+// Good: Memoized event handler\
 const handleClick =  useCallback(()  =>  {\
 // Expensive operation\
 },  [dependency]);
@@ -1299,7 +1331,8 @@ Common Pitfalls
 
 ### 1\. Mutating State Directly
 
-```// Bad: Direct mutation\
+```jsx
+// Bad: Direct mutation\
 const  [items, setItems]  =  useState([]);\
 items.push(newItem);  // This won't trigger re-render!
 
@@ -1310,7 +1343,8 @@ setItems(prevItems  =>  [...prevItems, newItem]);
 
 ### 2\. Stale State in Closures
 
-```// Bad: Stale state\
+```jsx
+// Bad: Stale state\
 const  handleClick  =  ()  =>  {\
 setTimeout(()  =>  {\
 setCount(count +  1);  // Uses stale count value\
@@ -1328,7 +1362,8 @@ setCount(prevCount  => prevCount +  1);\
 
 ### 3\. Forgetting to Prevent Default
 
-```// Bad: Form will submit and refresh page\
+```jsx
+// Bad: Form will submit and refresh page\
 const  handleSubmit  =  ()  =>  {\
 // Process form\
 };
@@ -1343,7 +1378,8 @@ event.preventDefault();\
 
 ### 4\. Missing Dependencies in useEffect
 
-```// Bad: Missing dependency\
+```jsx
+// Bad: Missing dependency\
 useEffect(()  =>  {\
 fetchData(userId);\
 },  []);  // Missing userId dependency
@@ -1360,7 +1396,8 @@ Advanced Patterns
 
 ### Custom Hooks
 
-```// Custom hook for form state\
+```jsx
+// Custom hook for form state\
 function  useForm(initialValues)  {\
 const  [values, setValues]  =  useState(initialValues);\
 const  [errors, setErrors]  =  useState({});
@@ -1406,7 +1443,8 @@ placeholder="Name"\
 
 ### State Reducer Pattern
 
-```// For complex state logic\
+```jsx
+// For complex state logic\
 function  todoReducer(state, action)  {\
 switch  (action.type)  {\
 case  'ADD_TODO':\
