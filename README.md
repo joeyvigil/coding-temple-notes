@@ -1,7 +1,7 @@
 # REACT TUTORIAL 
 class curriculum for coding temple
 
-## 1. React Setup, JSX, Components & Props Tutorial
+## Part 1: React Setup, JSX, Components & Props Tutorial
 =============================================
 
 Introduction
@@ -438,7 +438,7 @@ Solution:
 
 ```jsx
 function  Welcome({ name, timeOfDay })  {
-const greeting =  ```Good ${timeOfDay}, ${name}!```;
+const greeting =  `Good ${timeOfDay}, ${name}!`;
 
 return  (
 <div className="welcome">
@@ -789,7 +789,7 @@ After mastering components and props, you'll be ready to learn:
 Remember: Practice is key to mastering React. Build projects, experiment with different patterns, and don't be afraid to make mistakes. Each error is a learning opportunity!
 
 
-## 2. useState & Event Handling
+## Part 2: useState & Event Handling
 =========================
 
 Introduction
@@ -1514,7 +1514,7 @@ You've now learned the fundamentals of React state management and event handling
 In the next lesson, you'll learn about ```useEffect``` for handling side effects and API integration. Keep practicing with state and events - they're the foundation of interactive React applications!
 
 
-## 3. Tutorial: useEffect & API Integration
+## Part 3: Tutorial: useEffect & API Integration
 =====================================
 
 * * * * *
@@ -2829,7 +2829,7 @@ Practice Exercises
 
 Try building these examples to solidify your understanding of useEffect and API integration!
 
-## 4. Forms & Controlled Components Tutorial
+## Part 4: Forms & Controlled Components Tutorial
 ======================================
 
 Introduction
@@ -3218,7 +3218,7 @@ Additional Resources
 -   [Lighthouse](https://developers.google.com/web/tools/lighthouse) - Accessibility audit
 -   
 
-## 5. React Router & Navigation Tutorial
+## Part 5: React Router & Navigation Tutorial
 ==================================
 
 Introduction
@@ -4035,7 +4035,7 @@ React Router is essential for building modern React applications. Key takeaways:
 
 Master these concepts and you'll be able to build sophisticated, navigable React applications that provide excellent user experiences.
 
-## 6. Context API & State Management Tutorial
+## Part 6: Context API & State Management Tutorial
 **Introduction**
 In this tutorial, you'll learn how to use React's Context API for global state management and how to integrate it with Material-UI (MUI) theming. The Context API is React's built-in solution for sharing state across multiple components without prop drilling, making it perfect for managing global application state like themes, user authentication, and shopping carts.
 
@@ -4656,7 +4656,7 @@ Theme Switching App
 Authentication with Context
 Remember: Context API is a powerful tool for global state management, but use it judiciously. Start with local state (useState) and only move to Context when you need to share state across multiple components that don't have a direct parent-child relationship.
 
-## 7. React Deploy on Vercel
+## Part 7: React Deploy on Vercel
 
 Intro
 =====
