@@ -1,6 +1,15 @@
 # REACT TUTORIAL 
 class curriculum for coding temple
 
+## Table of Contents
+1. [Part 1: React Setup, JSX, Components & Props Tutorial](#part-1-react-setup-jsx-components--props-tutorial)
+2. [Part 2: useState & Event Handling](#part-2-usestate--event-handling)
+3. [Part 3: Tutorial: useEffect & API Integration](#part-3-tutorial-useeffect--api-integration)
+4. [Part 4: Forms & Controlled Components Tutorial](#part-4-forms--controlled-components-tutorial)
+5. [Part 5: React Router & Navigation Tutorial](#part-5-react-router--navigation-tutorial)
+6. [Part 6: Context API & State Management Tutorial](#part-6-context-api--state-management-tutorial)
+7. [Part 7: React Deploy on Vercel](#part-7-react-deploy-on-vercel)
+
 ## Part 1: React Setup, JSX, Components & Props Tutorial
 =============================================
 
@@ -3256,7 +3265,7 @@ Core Concepts
 
 A Single Page Application loads once and then dynamically updates the content as users navigate. The URL changes, but the page doesn't refresh.
 
-```
+```txt
 // Traditional multi-page app
 // Page 1: /about.html
 // Page 2: /contact.html
@@ -3273,7 +3282,7 @@ A Single Page Application loads once and then dynamically updates the content as
 
 Client-side routing intercepts navigation attempts and renders the appropriate component based on the URL, all without making server requests.
 
-```
+```txt
 // When user clicks a link or types a URL:
 // 1. React Router intercepts the navigation
 // 2. Determines which component to render
